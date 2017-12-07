@@ -6,8 +6,8 @@ return array(
     
     'catalog' => 'catalog/index', // actionIndex в CatalogController
 
-    'category/([0-9]+)/page-([0-9]+)' => 'catalog/category/$1/$2', // actionCategory в CatalogController   
-    'category/([0-9]+)' => 'catalog/category/$1',  // actionCategory в CatalogController catalog/group/$1
+    'group/([0-9]+)/page-([0-9]+)' => 'catalog/group/$1/$2', // actionGroup в CatalogController
+    'group/([0-9]+)' => 'catalog/group/$1',  // actionGroup в CatalogController catalog/group/$1
 
     'rating/([0-9]+)' => 'student/rating/$1', // actionRating в ProductController  student/view/$1
 

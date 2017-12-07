@@ -7,12 +7,12 @@
                 <div class="left-sidebar">
                     <h2>Наши группы</h2>
                     <div class="panel-group category-products">
-                        <?php foreach ($categories as $categoryItem): ?>
+                        <?php foreach ($groups as $groupItem): ?>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="/category/<?php echo $categoryItem['id'];?>">
-                                            <?php echo $categoryItem['group_code'];?>
+                                        <a href="/group/<?php echo $groupItem['id'];?>">
+                                            <?php echo $groupItem['group_code'];?>
                                         </a>
                                     </h4>
                                 </div>

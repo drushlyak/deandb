@@ -7,14 +7,14 @@
                 <div class="left-sidebar">
                     <h2>Наши группы</h2>
                     <div class="panel-group category-products">
-                        <?php foreach ($categories as $categoryItem): ?>
+                        <?php foreach ($groups as $groupItem): ?>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="/category/<?php echo $categoryItem['id'];?>"
-                                           class="<?php if ($categoryId == $categoryItem['id']) echo 'active'; ?>"
+                                        <a href="/group/<?php echo $groupItem['id'];?>"
+                                           class="<?php if ($groupId == $groupItem['id']) echo 'active'; ?>"
                                            >                                                                                    
-                                            <?php echo $categoryItem['group_code'];?>
+                                            <?php echo $groupItem['group_code'];?>
                                         </a>
                                     </h4>
                                 </div>
@@ -28,21 +28,21 @@
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Последние товары</h2>
                     
-                    <?php foreach ($categoryProducts as $product): ?>
+                    <?php foreach ($groupStudents as $student): ?>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="/template/images/home/product1.jpg" alt="" />
-                                       <!-- <h2><?php echo $product['price'];?>$</h2> -->
+                                       <!-- <h2><?php echo $student['price'];?>$</h2> -->
                                         <p>
-                                            <a href="/product/<?php echo $product['id_of_student'];?>">
-                                                <?php echo $product['surname_of_student']." ".$product['student_name']." ".$product['student_second_name'];?>
+                                            <a href="/student/<?php echo $student['id_of_student'];?>">
+                                                <?php echo $student['surname_of_student']." ".$student['student_name']." ".$student['student_second_name'];?>
                                             </a>
                                         </p>
                                         <!--<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a> -->
                                     </div>
-                                   <!-- <?php if ($product['is_new']): ?>
+                                   <!-- <?php if ($student['is_new']): ?>
                                         <img src="/template/images/home/new.png" class="new" alt="" />
                                     <?php endif; ?> -->
                                 </div>

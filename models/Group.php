@@ -1,28 +1,28 @@
 <?php
 
-class Category
+class Group
 {
 
     /**
      * Returns an array of groups
      */
-    public static function getCategoriesList()
+    public static function getGroupsList()
     {
 
         $db = Db::getConnection();
 
-        $categoryList = array();
+        $groupList = array();
 
         $result = $db->query('SELECT id, group_code FROM groups');
 
         $i = 0;
         while ($row = $result->fetch()) {
-            $categoryList[$i]['id'] = $row['id'];
-            $categoryList[$i]['group_code'] = $row['group_code'];
+            $groupList[$i]['id'] = $row['id'];
+            $groupList[$i]['group_code'] = $row['group_code'];
             $i++;
         }
 
-        return $categoryList;
+        return $groupList;
     }
 
     

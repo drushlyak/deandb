@@ -1,6 +1,6 @@
 <?php
 
-//include_once ROOT . '/models/Category.php';
+//include_once ROOT . '/models/Group.php';
 //include_once ROOT . '/models/Student.php';
 
 class SiteController
@@ -8,8 +8,8 @@ class SiteController
 
     public function actionIndex()
     {
-        $categories = array();
-        $categories = Category::getCategoriesList();
+        $groups = array();
+        $groups = Group::getGroupsList();
 
         //$latestProducts = array();
         //$latestProducts = Product::getLatestProducts(6);

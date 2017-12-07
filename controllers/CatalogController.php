@@ -1,44 +1,40 @@
 <?php
 
-//include_once ROOT . '/models/Category.php';
-//include_once ROOT . '/models/Student.php';
-//include_once ROOT . '/components/Pagination.php';
-
 
 class CatalogController
 {
 
     public function actionIndex()
     {
-        $categories = array();
-        $categories = Category::getCategoriesList();
+        $groups = array();
+        $groups = Group::getGroupsList();
 
-        $latestProducts = array();
-        $latestProducts = Product::getLatestProducts(12);
+       //$latestProducts = array();
+       // $latestProducts = Student::getLatestProducts(12);
 
         require_once(ROOT . '/views/catalog/index.php');
 
         return true;
     }
     
-    public function actionCategory ($categoryId, $page = 1)
+    public function actionGroup ($groupId, $page = 1)
     {
-        echo $categoryId."@@@".$page;
+        echo $groupId."@@@".$page;
 
-        $categories = array();
-        $categories = Category::getCategoriesList();
+        $groups = array();
+        $groups = Group::getGroupsList();
 
-        $categoryProducts = array();
-        $categoryProducts = Product::getProductsListByCategory($categoryId, $page);
+        $groupStudents = array();
+        $groupStudents = Student::getStudentsListByGroup($groupId, $page);
 
-        $total = Product::getTotalStudentsInGroup($categoryId);
+        $total = Student::getTotalStudentsInGroup($groupId);
 
         echo "llll".$total;
 
         // Создаем объект Pagination - постраничная навигация
-        $pagination = new Pagination($total, $page, Product::SHOW_BY_DEFAULT, 'page-');
+        $pagination = new Pagination($total, $page, Student::SHOW_BY_DEFAULT, 'page-');
 
-        require_once(ROOT . '/views/catalog/category.php');
+        require_once(ROOT . '/views/catalog/group.php');
 
         return true;
     }

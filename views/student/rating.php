@@ -11,7 +11,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="/category/<?php echo $groupItem['id'];?>">
+                                        <a href="/group/<?php echo $groupItem['id'];?>">
                                             <?php echo $groupItem['group_code'];?>
                                         </a>
                                     </h4>

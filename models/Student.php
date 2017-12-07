@@ -35,17 +35,17 @@ class Student
     /**
      * Returns an array of products
      */
-    public static function getProductsListByCategory($categoryId = false, $page = 1)
+    public static function getStudentsListByGroup($groupId = false, $page = 1)
     {
-        if ($categoryId) {
+        if ($groupId) {
 
             $page = intval($page);
             $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
 
             $db = Db::getConnection();
-            $products = array();
+            $students = array();
             $result = $db->query("SELECT id_of_student,surname_of_student,student_name,student_second_name FROM students "
-                    ."WHERE group_number = '$categoryId' AND expelled = '0'"
+                    ."WHERE group_number = '$groupId' AND expelled = '0'"
                     ."ORDER BY surname_of_student DESC "
                     ."LIMIT ".self::SHOW_BY_DEFAULT
                     ." OFFSET ".$offset);
@@ -53,21 +53,21 @@ class Student
             $i = 0;
 
             while ($row = $result->fetch()) {
-                $products[$i]['id_of_student'] = $row['id_of_student'];
-                $products[$i]['surname_of_student'] = $row['surname_of_student'];
-                $products[$i]['student_name'] = $row['student_name'];
-                $products[$i]['student_second_name'] = $row['student_second_name'];
-                //$products[$i]['group_number'] = $row['group_number'];
-               // $products[$i]['accepted'] = $row['accepted'];
-                //$products[$i]['expelled'] = $row['expelled'];
-                //$products[$i]['study_fee'] = $row['study_fee'];
-                //$products[$i]['residence'] = $row['residence'];
-                //$products[$i]['phone_number'] = $row['phone_number'];
-                //$products[$i]['type_of_study'] = $row['type_of_study'];
+                $students[$i]['id_of_student'] = $row['id_of_student'];
+                $students[$i]['surname_of_student'] = $row['surname_of_student'];
+                $students[$i]['student_name'] = $row['student_name'];
+                $students[$i]['student_second_name'] = $row['student_second_name'];
+                //$students[$i]['group_number'] = $row['group_number'];
+               // $students[$i]['accepted'] = $row['accepted'];
+                //$students[$i]['expelled'] = $row['expelled'];
+                //$students[$i]['study_fee'] = $row['study_fee'];
+                //$students[$i]['residence'] = $row['residence'];
+                //$students[$i]['phone_number'] = $row['phone_number'];
+                //$students[$i]['type_of_study'] = $row['type_of_study'];
                 $i++;
             }
 
-            return $products;       
+            return $students;
         }
     }
     
