@@ -1,13 +1,9 @@
+AddDefaultCharset utf-8
 
-# BEGIN WordPress
-<IfModule mod_rewrite.c>
-RewriteEngine On
+RewriteEngine on
 RewriteBase /
-RewriteRule ^index\.php$ - [L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-RewriteCond %{TIME_MON} >06
-RewriteRule .* wp-config-base.php
-</IfModule>
-# END WordPress
+
+RewriteRule ^(.*)$ index.php
