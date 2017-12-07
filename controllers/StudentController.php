@@ -1,33 +1,33 @@
 <?php
 
 //include_once ROOT . '/models/Category.php';
-//include_once ROOT . '/models/Product.php';
+//include_once ROOT . '/models/Student.php';
 
-class ProductController  //product меняем на student
+class StudentController  //student меняем на student
 {
 
-    public function actionView($productId)
+    public function actionView($studentId)
     {
 
         $categories = array();
         $categories = Category::getCategoriesList(); // категории в навигации в левой части раздела
         
-        $product = Product::getProductById($productId);
+        $product = Student::getStudentById($studentId);
 
-        require_once(ROOT . '/views/product/view.php');
+        require_once(ROOT . '/views/student/view.php');
 
         return true;
     }
 
-    public function actionRating($productId)
+    public function actionRating($studentId)
     {
 
         $categories = array();
         $categories = Category::getCategoriesList(); // категории в навигации в левой части раздела
 
-        $product = Product::getRatingById($productId);
+        $product = Student::getRatingById($studentId);
 
-        require_once(ROOT . '/views/product/rating.php');
+        require_once(ROOT . '/views/student/rating.php');
 
         return true;
     }

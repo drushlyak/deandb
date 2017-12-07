@@ -1,7 +1,7 @@
 <?php
 
 //include_once ROOT . '/models/Category.php';
-//include_once ROOT . '/models/Product.php';
+//include_once ROOT . '/models/Student.php';
 //include_once ROOT . '/components/Pagination.php';
 
 
@@ -31,7 +31,7 @@ class CatalogController
         $categoryProducts = array();
         $categoryProducts = Product::getProductsListByCategory($categoryId, $page);
 
-        $total = Product::getTotalProductsInCategory($categoryId);
+        $total = Product::getTotalStudentsInGroup($categoryId);
 
         echo "llll".$total;
 

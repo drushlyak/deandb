@@ -7,12 +7,12 @@
                 <div class="left-sidebar">
                     <h2>Наши группы</h2>
                     <div class="panel-group category-products">
-                        <?php foreach ($categories as $categoryItem): ?>
+                        <?php foreach ($groups as $groupItem): ?>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="/category/<?php echo $categoryItem['id'];?>">
-                                            <?php echo $categoryItem['group_code'];?>
+                                        <a href="/category/<?php echo $groupItem['id'];?>">
+                                            <?php echo $groupItem['group_code'];?>
                                         </a>
                                     </h4>
                                 </div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <?php print_r ($product); ?>
+            <?php print_r ($student); ?>
 
             <div class="col-sm-9 padding-right">
                 <div class="product-details"><!--product-details-->
@@ -35,7 +35,7 @@
                         <div class="col-sm-7">
                             <div class="product-information"><!--/product-information-->
                                 <!--<img src="/template/images/product-details/new.jpg" class="newarrival" alt="" /> -->
-                                <h2><?php echo $product[0]['surname_of_student'].' '.$product[0]['student_name'].' '.$product[0]['student_second_name'];?></h2>
+                                <h2><?php echo $student[0]['surname_of_student'].' '.$student[0]['student_name'].' '.$student[0]['student_second_name'];?></h2>
                                 <table>
                                     <thead>Успеваемость студента за период обучения</thead>
 
@@ -46,7 +46,7 @@
                                             <th>Оценка</th>
                                         </tr>
                                         <?php $i = 0; $averageEvaluation = 0;?>
-                                        <?php foreach ($product as $currentDiscipline) {?>
+                                        <?php foreach ($student as $currentDiscipline) {?>
                                         <tr>
                                             <td><?php echo $currentDiscipline['name_of_discipline']; ?> </td>
                                             <td><?php echo $currentDiscipline['semester_id']; ?></td>
@@ -69,7 +69,7 @@
                                 <span>
 
 
-                                    <span>US $<?php echo $product['price'];?></span>
+                                    <span>US $<?php echo $student['price'];?></span>
                                     <label>Количество:</label>
                                     <input type="text" value="3" />
                                     <button type="button" class="btn btn-fefault cart">
@@ -86,7 +86,7 @@
                     <div class="row">                                
                         <div class="col-sm-12">
                             <h5>Описание товара</h5>
-                            <?php echo $product['description'];?>
+                            <?php echo $student['description'];?>
                         </div>
                     </div>
                 </div><!--/product-details-->

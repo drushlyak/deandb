@@ -1,6 +1,6 @@
 <?php
 
-class Product
+class Student
 {
 
     const SHOW_BY_DEFAULT = 3; //количество отображаемых студентов на странице
@@ -14,7 +14,7 @@ class Product
         $db = Db::getConnection();
         $productsList = array();
 
-        $result = $db->query('SELECT id, name, price, image, is_new FROM product '
+        $result = $db->query('SELECT id, name, price, image, is_new FROM student '
                 . 'WHERE status = "1"'
                 . 'ORDER BY id DESC '                
                 . 'LIMIT ' . $count);
@@ -73,10 +73,10 @@ class Product
     
     
     /**
-     * Returns product item by id
+     * Returns student item by id
      * @param integer $id
      */
-    public static function getProductById($id)
+    public static function getStudentById($id)
     {
         $id = intval($id);
 
@@ -119,7 +119,7 @@ class Product
         if ($id) {
             $db = Db::getConnection();
 
-            $productsList = array();
+            $studentsList = array();
 
             $result = $db->query('
                 SELECT 
@@ -141,18 +141,18 @@ class Product
 
             $i = 0;
             while ($row = $result->fetch()) {
-                $productsList[$i]['surname_of_student'] = $row['surname_of_student'];
-                $productsList[$i]['student_name'] = $row['student_name'];
-                $productsList[$i]['student_second_name'] = $row['student_second_name'];
-                $productsList[$i]['student_second_name'] = $row['student_second_name'];
-                $productsList[$i]['discipline_id'] = $row['discipline_id'];
-                $productsList[$i]['semester_id'] = $row['semester_id'];
-                $productsList[$i]['evaluation'] = $row['evaluation'];
-                $productsList[$i]['name_of_discipline'] = $row['name_of_discipline'];
+                $studentsList[$i]['surname_of_student'] = $row['surname_of_student'];
+                $studentsList[$i]['student_name'] = $row['student_name'];
+                $studentsList[$i]['student_second_name'] = $row['student_second_name'];
+                $studentsList[$i]['student_second_name'] = $row['student_second_name'];
+                $studentsList[$i]['discipline_id'] = $row['discipline_id'];
+                $studentsList[$i]['semester_id'] = $row['semester_id'];
+                $studentsList[$i]['evaluation'] = $row['evaluation'];
+                $studentsList[$i]['name_of_discipline'] = $row['name_of_discipline'];
                 $i++;
             }
 
-            return $productsList;
+            return $studentsList;
 
         }
     }
@@ -162,53 +162,43 @@ class Product
 
 
 
+/*
 
-
-
-    /**        $i = 0;
-    while ($row = $result->fetch()) {
-    $productsList[$i]['id'] = $row['id'];
-    $productsList[$i]['name'] = $row['name'];
-    $productsList[$i]['image'] = $row['image'];
-    $productsList[$i]['price'] = $row['price'];
-    $productsList[$i]['is_new'] = $row['is_new'];
-    $i++;
-    }
-     * Returns an array of recommended products
-     */
     public static function getRecommendedProducts()
     {
         $db = Db::getConnection();
 
-        $productsList = array();
+        $studentsList = array();
 
-        $result = $db->query('SELECT id, name, price, image, is_new FROM product '
+        $result = $db->query('SELECT id, name, price, image, is_new FROM student '
                 . 'WHERE status = "1" AND is_recommended = "1"'
                 . 'ORDER BY id DESC ');
 
         $i = 0;
         while ($row = $result->fetch()) {
-            $productsList[$i]['id'] = $row['id'];
-            $productsList[$i]['name'] = $row['name'];
-            $productsList[$i]['image'] = $row['image'];
-            $productsList[$i]['price'] = $row['price'];
-            $productsList[$i]['is_new'] = $row['is_new'];
+            $studentsList[$i]['id'] = $row['id'];
+            $studentsList[$i]['name'] = $row['name'];
+            $studentsList[$i]['image'] = $row['image'];
+            $studentsList[$i]['price'] = $row['price'];
+            $studentsList[$i]['is_new'] = $row['is_new'];
             $i++;
         }
 
-        return $productsList;
+        return $studentsList;
     }
+*/
 
+    
 
     /**
      * Returns total products
      */
-    public static function getTotalProductsInCategory($categoryId)
+    public static function getTotalStudentsInGroup($groupId)
     {
         $db = Db::getConnection();
 
         $result = $db->query("SELECT count(id_of_student) AS count FROM students "
-            . "WHERE group_number = '$categoryId' AND expelled = '0'");
+            . "WHERE group_number = '$groupId' AND expelled = '0'");
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $row = $result->fetch();
 
