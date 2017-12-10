@@ -6,6 +6,8 @@
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
+//mb_internal_encoding('UTF-8');
+
 session_start();
 
 // 2. Подключение файлов системы

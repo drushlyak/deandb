@@ -59,8 +59,8 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
-                                <ul class="nav navbar-nav">                                    
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                                <ul class="nav navbar-nav">
+                                    <li><a href="/student/add/"><i class="fa fa-plus"></i> Добавить студента</a></li>
                                     <?php if (User::isGuest()): ?>                                        
                                         <li><a href="/user/login/"><i class="fa fa-lock"></i> Вход</a></li>
                                     <?php else: ?>

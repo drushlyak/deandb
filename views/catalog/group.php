@@ -26,14 +26,13 @@
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Последние товары</h2>
-                    
+                    <h2 class="title text-center">Группа <?php echo $group_code['group_code']?></h2>
                     <?php foreach ($groupStudents as $student): ?>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="/template/images/home/product1.jpg" alt="" />
+                                        <img src="<?php echo Student::getImage($student['id_of_student']); ?>" width="100" alt="" />
                                        <!-- <h2><?php echo $student['price'];?>$</h2> -->
                                         <p>
                                             <a href="/student/<?php echo $student['id_of_student'];?>">

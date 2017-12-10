@@ -6,11 +6,10 @@ class CatalogController
 
     public function actionIndex()
     {
+        
+        
         $groups = array();
         $groups = Group::getGroupsList();
-
-       //$latestProducts = array();
-       // $latestProducts = Student::getLatestProducts(12);
 
         require_once(ROOT . '/views/catalog/index.php');
 
@@ -24,12 +23,14 @@ class CatalogController
         $groups = array();
         $groups = Group::getGroupsList();
 
+        $group_code = Group::getNameGroupById($groupId);
+
         $groupStudents = array();
         $groupStudents = Student::getStudentsListByGroup($groupId, $page);
 
         $total = Student::getTotalStudentsInGroup($groupId);
 
-        echo "llll".$total;
+        echo "===".$total;
 
         // Создаем объект Pagination - постраничная навигация
         $pagination = new Pagination($total, $page, Student::SHOW_BY_DEFAULT, 'page-');

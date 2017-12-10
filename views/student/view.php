@@ -3,7 +3,7 @@
 <section>
     <div class="container">
         <div class="row">
-                        <div class="col-sm-3">
+            <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Наши группы</h2>
                     <div class="panel-group category-products">
@@ -22,47 +22,43 @@
                 </div>
             </div>
 
-            <?php print_r ($student) ?>
-
             <div class="col-sm-9 padding-right">
+                <h2 class="title text-center">Карточка студента</h2>
                 <div class="product-details"><!--product-details-->
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="view-product">
-                                <img src="/template/images/product-details/1.jpg" alt="" />
+                                <img src="<?php echo Student::getImage($student['id_of_student']); ?>" width="200" alt="" />
                             </div>
                         </div>
                         <div class="col-sm-7">
                             <div class="product-information"><!--/product-information-->
                                 <!--<img src="/template/images/product-details/new.jpg" class="newarrival" alt="" /> -->
-                                <h2><?php echo $product['surname_of_student'].' '.$product['student_name'].' '.$product['student_second_name'];?></h2>
-                                <p><b>Группа обучения:</b> <?php echo $product['group_code'];?></p>
-                                <p><b>Тип обучения:</b> <?php echo $product['type_of_study'];?></p>
-                                <p><b>Оплата обучения:</b> <?php echo $product['kind_of_study_fees'];?></p>
-                                <p><b>Поступил(а) на обучение:</b> <?php echo $product['accepted'];?></p>
-                                <p><b>Проживает по адресу:</b> <?php echo $product['residence'];?></p>
-                                <p><b>Контактный телефон:</b> <?php echo $product['phone_number'];?></p>
-                                <span>
+                                <h2><?php echo $student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name'];?></h2>
 
+                                <p><b>Группа обучения:</b> <?php echo $student['group_code'];?></p>
+                                <p><b>Тип обучения:</b> <?php echo $student['type_of_study'];?></p>
+                                <p><b>Оплата обучения:</b> <?php echo $student['kind_of_study_fees'];?></p>
+                                <p><b>Поступил(а) на обучение:</b> <?php echo $student['accepted'];?></p>
+                                <p><b>Проживает по адресу:</b> <?php echo $student['residence'];?></p>
+                                <p><b>Контактный телефон:</b> <?php echo $student['phone_number'];?></p>
 
-                                    <span>US $<?php echo $product['price'];?></span>
-                                    <label>Количество:</label>
-                                    <input type="text" value="3" />
-                                    <button type="button" class="btn btn-fefault cart">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        В корзину
-                                    </button>
-                                </span>
-                                <p><b>Наличие:</b> На складе</p>
-                                <p><b>Состояние:</b> Новое</p>
-                                <p><b>Производитель:</b> D&amp;G</p>
-                            </div><!--/product-information-->
+                                <a href="/rating/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
+                                    <i class="fa fa-tachometer"></i>
+                                    Успеваемость
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="row">                                
                         <div class="col-sm-12">
-                            <h5>Описание товара</h5>
-                            <?php echo $product['description'];?>
+                            <h5>Дополнительные опции:</h5>
+
+                            <a href="/admin/student/update/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
+                                <i class="fa fa-pencil"></i>
+                                Редактирование
+                            </a>
+
                         </div>
                     </div>
                 </div><!--/product-details-->

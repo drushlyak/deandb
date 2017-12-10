@@ -25,5 +25,27 @@ class Group
         return $groupList;
     }
 
-    
+    public static function getNameGroupById($id)
+    {
+
+        $id = intval($id);
+
+        if ($id) {
+            $db = Db::getConnection();
+
+            $result = $db->query('
+                SELECT 
+                    group_code
+                FROM groups
+                WHERE id='. $id
+            );
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+
+            return $result->fetch();
+        }
+    }
+
+
+
+
 }
