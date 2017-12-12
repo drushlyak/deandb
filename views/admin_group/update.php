@@ -9,13 +9,13 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="/admin">Админпанель</a></li>
-                    <li><a href="/admin/category">Управление категориями</a></li>
-                    <li class="active">Редактировать категорию</li>
+                    <li><a href="/admin/group">Управление группами</a></li>
+                    <li class="active">Редактировать группу</li>
                 </ol>
             </div>
 
 
-            <h4>Редактировать категорию "<?php echo $category['name']; ?>"</h4>
+            <h4>Редактировать группу "<?php echo $group['group_code']; ?>"</h4>
 
             <br/>
 
@@ -24,16 +24,10 @@
                     <form action="#" method="post">
 
                         <p>Название</p>
-                        <input type="text" name="name" placeholder="" value="<?php echo $category['name']; ?>">
+                        <input type="text" name="group_code" placeholder="" value="<?php echo $group['group_code']; ?>">
 
-                        <p>Порядковый номер</p>
-                        <input type="text" name="sort_order" placeholder="" value="<?php echo $category['sort_order']; ?>">
-                        
-                        <p>Статус</p>
-                        <select name="status">
-                            <option value="1" <?php if ($category['status'] == 1) echo ' selected="selected"'; ?>>Отображается</option>
-                            <option value="0" <?php if ($category['status'] == 0) echo ' selected="selected"'; ?>>Скрыта</option>
-                        </select>
+                        <p>Количество студентов</p>
+                        <input type="text" name="quantity_of_students" placeholder="" value="<?php echo $group['quantity_of_students']; ?>">
 
                         <br><br>
                         

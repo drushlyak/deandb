@@ -11,6 +11,9 @@ class CatalogController
         $groups = array();
         $groups = Group::getGroupsList();
 
+        $allStudents = array();
+        $allStudents = Student::getStudentsList();
+
         require_once(ROOT . '/views/catalog/index.php');
 
         return true;
@@ -18,8 +21,6 @@ class CatalogController
     
     public function actionGroup ($groupId, $page = 1)
     {
-        echo $groupId."@@@".$page;
-
         $groups = array();
         $groups = Group::getGroupsList();
 
@@ -29,8 +30,6 @@ class CatalogController
         $groupStudents = Student::getStudentsListByGroup($groupId, $page);
 
         $total = Student::getTotalStudentsInGroup($groupId);
-
-        echo "===".$total;
 
         // Создаем объект Pagination - постраничная навигация
         $pagination = new Pagination($total, $page, Student::SHOW_BY_DEFAULT, 'page-');

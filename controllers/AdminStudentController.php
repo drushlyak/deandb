@@ -2,7 +2,7 @@
 
 /**
  * Контроллер AdminStudentController
- * Управление товарами в админпанели
+ * Управление студентами в админпанели
  */
 class AdminStudentController extends AdminBase
 {
@@ -24,7 +24,7 @@ class AdminStudentController extends AdminBase
     }
 
     /**
-     * Action для страницы "Добавить товар"
+     * Action для страницы "Добавить студента"
      */
     public function actionCreate()
     {
@@ -45,13 +45,11 @@ class AdminStudentController extends AdminBase
         if (isset($_POST['submit'])) {
             // Если форма отправлена
             // Получаем данные из формы
-            $options['id_of_student'] = $_POST['id_of_student'];
             $options['surname_of_student'] = $_POST['surname_of_student'];
             $options['student_name'] = $_POST['student_name'];
             $options['student_second_name'] = $_POST['student_second_name'];
             $options['group_number'] = $_POST['group_number'];
             $options['accepted'] = $_POST['accepted'];
-            $options['expelled'] = $_POST['expelled'];
             $options['study_fee'] = $_POST['study_fee'];
             $options['residence'] = $_POST['residence'];
             $options['phone_number'] = $_POST['phone_number'];
@@ -68,14 +66,15 @@ class AdminStudentController extends AdminBase
             if ($errors == false) {
                 // Если ошибок нет
                 // Добавляем новый товар
-                $id = Student::createProduct($options);
+                $id = Student::createStudent($options);
+
 
                 // Если запись добавлена
                 if ($id) {
                     // Проверим, загружалось ли через форму изображение
                     if (is_uploaded_file($_FILES["image"]["tmp_name"])) {
                         // Если загружалось, переместим его в нужную папке, дадим новое имя
-                        move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/upload/images/products/{$id}.jpg");
+                        move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/upload/images/students/{$id}.jpg");
                     }
                 };
 
@@ -85,7 +84,7 @@ class AdminStudentController extends AdminBase
         }
 
         // Подключаем вид
-        require_once(ROOT . '/views/admin_product/create.php');
+        require_once(ROOT . '/views/admin_student/create.php');
         return true;
     }
 
@@ -158,10 +157,10 @@ class AdminStudentController extends AdminBase
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена
-            // Удаляем товар
-            Student::deleteProductById($id);
+            // Удаляем студента
+            Student::deleteStudentById($id);
 
-            // Перенаправляем пользователя на страницу управлениями товарами
+            // Перенаправляем пользователя на страницу управлениями студентами
             header("Location: /admin/student");
         }
 

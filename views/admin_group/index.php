@@ -9,33 +9,31 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="/admin">Админпанель</a></li>
-                    <li class="active">Управление категориями</li>
+                    <li class="active">Управление группами</li>
                 </ol>
             </div>
 
-            <a href="/admin/category/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить категорию</a>
+            <a href="/admin/group/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить группу</a>
             
-            <h4>Список категорий</h4>
+            <h4>Список групп</h4>
 
             <br/>
 
             <table class="table-bordered table-striped table">
                 <tr>
-                    <th>ID категории</th>
-                    <th>Название категории</th>
-                    <th>Порядковый номер</th>
-                    <th>Статус</th>
+                    <th>ID группы</th>
+                    <th>Название группы</th>
+                    <th>Количество студентов</th>
                     <th></th>
                     <th></th>
                 </tr>
-                <?php foreach ($categoriesList as $category): ?>
+                <?php foreach ($groupsList as $group): ?>
                     <tr>
-                        <td><?php echo $category['id']; ?></td>
-                        <td><?php echo $category['name']; ?></td>
-                        <td><?php echo $category['sort_order']; ?></td>
-                        <td><?php echo Category::getStatusText($category['status']); ?></td>  
-                        <td><a href="/admin/category/update/<?php echo $category['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td><a href="/admin/category/delete/<?php echo $category['id']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>
+                        <td><?php echo $group['id']; ?></td>
+                        <td><?php echo $group['group_code']; ?></td>
+                        <td><?php echo $group['quantity_of_students']; ?></td>
+                        <td><a href="/admin/group/update/<?php echo $group['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
+                        <td><a href="/admin/group/delete/<?php echo $group['id']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
             </table>

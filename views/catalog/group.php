@@ -49,15 +49,22 @@
                         </div>
                     <?php endforeach;?>
 
-                    <!-- Постраничная навигация -->
-                    <?php echo $pagination->get(); ?>
+
+
+
 
 
 
                 </div><!--features_items-->
 
+                <!-- Постраничная навигация -->
+
+                <?php echo $pagination->get(); ?>
+
             </div>
         </div>
+
+
     </div>
 </section>
 

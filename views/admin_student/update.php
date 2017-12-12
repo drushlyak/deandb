@@ -26,7 +26,7 @@
 
                         <p>Фото студента</p>
                         <img src="<?php echo Student::getImage($student['id_of_student']); ?>" width="200" alt="" />
-                        <input type="file" name="image" placeholder="" value="<?php echo $student['image']; ?>">
+                        <input type="file" name="image" placeholder="" value="<?php //echo $student['image']; ?>">
 
                         <p>Фамилия</p>
                         <input type="text" name="surname_of_student" placeholder="" value="<?php echo $student['surname_of_student']; ?>">
@@ -62,7 +62,7 @@
                         <p>Телефон</p>
                         <input type="text" name="phone_number" placeholder="" value="<?php echo $student['phone_number']; ?>">
 
-                        <p>Тип обучения</p>
+                        <p>Оплата обучения</p>
                         <select name="study_fee">
                             <?php if (is_array($feesList)): ?>
                                 <?php foreach ($feesList as $fee): ?>

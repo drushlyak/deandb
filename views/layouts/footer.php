@@ -2,8 +2,8 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">ТУСУР © 2017</p>
-                <p class="pull-right">Разработка: Друшляк А.В.</p>
+                <p class="pull-left">Курсовой проект по дисциплине «Базы данных» студента группы з-445У-а А.В.Друшляка</p>
+                <p class="pull-right">ТУСУР © 2017</p>
             </div>
         </div>
     </div>

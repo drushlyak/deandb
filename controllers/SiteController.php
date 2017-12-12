@@ -1,8 +1,5 @@
 <?php
 
-//include_once ROOT . '/models/Group.php';
-//include_once ROOT . '/models/Student.php';
-
 class SiteController
 {
 
@@ -10,7 +7,20 @@ class SiteController
     {
         $groups = array();
         $groups = Group::getGroupsList();
+
+        $countOfStudents = Student::countOfStudents();
+
+        $countOfGroups = Db::countRowsInTable('groups');
+
+        $countOfLecturers = Db::countRowsInTable('lecturers');
+
+        $countOfDisciplines = Db::countRowsInTable('disciplines');
+
+        $averageRatingOfAll = Student::averageRatingOfAll();
+
+        $lastAccept = Student::lastAccept();
         
+
         require_once(ROOT . '/views/site/index.php');
 
         return true;
@@ -48,5 +58,19 @@ class SiteController
 
         return true;
     }
+
+    /**
+     * Action для страницы "О проекте"
+     */
+    public function actionAbout()
+    {
+        // Подключаем вид
+        require_once(ROOT . '/views/site/about.php');
+        return true;
+    }
+    
+    
+    
+
 
 }

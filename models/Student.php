@@ -5,35 +5,9 @@ class Student
 
     const SHOW_BY_DEFAULT = 3; //количество отображаемых студентов на странице
 
-    /**
-     * Returns an array of products
-     */
-    public static function getLatestProducts($count = self::SHOW_BY_DEFAULT)
-    {
-        $count = intval($count);
-        $db = Db::getConnection();
-        $productsList = array();
-
-        $result = $db->query('SELECT id, name, price, image, is_new FROM student '
-                . 'WHERE status = "1"'
-                . 'ORDER BY id DESC '                
-                . 'LIMIT ' . $count);
-
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $productsList[$i]['id'] = $row['id'];
-            $productsList[$i]['name'] = $row['name'];
-            $productsList[$i]['image'] = $row['image'];
-            $productsList[$i]['price'] = $row['price'];
-            $productsList[$i]['is_new'] = $row['is_new'];
-            $i++;
-        }
-
-        return $productsList;
-    }
     
     /**
-     * Returns an array of products
+     * Returns an array of students
      */
     public static function getStudentsListByGroup($groupId = false, $page = 1)
     {
@@ -45,7 +19,7 @@ class Student
             $db = Db::getConnection();
             $students = array();
             $result = $db->query("SELECT id_of_student,surname_of_student,student_name,student_second_name FROM students "
-                    ."WHERE group_number = '$groupId' AND expelled IS NULL OR expelled = 0 "
+                    ."WHERE group_number = ".$groupId." AND (expelled IS NULL OR expelled = 0) "
                     ."ORDER BY surname_of_student DESC "
                     ."LIMIT ".self::SHOW_BY_DEFAULT
                     ." OFFSET ".$offset);
@@ -169,7 +143,7 @@ class Student
         $db = Db::getConnection();
 
         $result = $db->query("SELECT count(id_of_student) AS count FROM students "
-            . "WHERE group_number = '$groupId' AND expelled IS NULL OR expelled = 0 ");
+            . "WHERE group_number = '$groupId' AND (expelled IS NULL OR expelled = 0) ");
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $row = $result->fetch();
 
@@ -194,8 +168,9 @@ class Student
                     s.student_second_name,
                     s.group_number,
                     g.group_code
-                FROM students s 
-                INNER JOIN groups g ON  g.id = s.group_number
+                FROM students s
+                INNER JOIN groups g ON  g.id = s.group_number 
+                WHERE (s.expelled IS NULL OR s.expelled = 0)
                 ORDER BY s.surname_of_student ASC');
         $studentsList = array();
         $i = 0;
@@ -209,6 +184,7 @@ class Student
         }
         return $studentsList;
     }
+
 
     /**
      * Редактирует студента с заданным id
@@ -252,9 +228,6 @@ class Student
         return $result->execute();
     }
 
-
-
-
     /**
      * Возвращает путь к изображению
      * @param integer $id
@@ -292,38 +265,108 @@ class Student
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'INSERT INTO product '
-            . '(name, code, price, category_id, brand, availability,'
-            . 'description, is_new, is_recommended, status)'
-            . 'VALUES '
-            . '(:name, :code, :price, :category_id, :brand, :availability,'
-            . ':description, :is_new, :is_recommended, :status)';
-
-
-
-
-
-
-
+        $sql = "INSERT INTO students
+              (surname_of_student, student_name, student_second_name, group_number, accepted, 
+              expelled, study_fee, residence, phone_number, type_of_study)
+              VALUES
+              (:surname_of_student, :student_name, :student_second_name, :group_number, :accepted, 
+              '', :study_fee, :residence, :phone_number, :type_of_study)";
+        
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
-        $result->bindParam(':name', $options['name'], PDO::PARAM_STR);
-        $result->bindParam(':code', $options['code'], PDO::PARAM_STR);
-        $result->bindParam(':price', $options['price'], PDO::PARAM_STR);
-        $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
-        $result->bindParam(':brand', $options['brand'], PDO::PARAM_STR);
-        $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
-        $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
-        $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
-        $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
-        $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
+        $result->bindParam(':surname_of_student', $options['surname_of_student'], PDO::PARAM_STR);
+        $result->bindParam(':student_name', $options['student_name'], PDO::PARAM_STR);
+        $result->bindParam(':student_second_name', $options['student_second_name'], PDO::PARAM_STR);
+        $result->bindParam(':group_number', $options['group_number'], PDO::PARAM_INT);
+        $result->bindParam(':accepted', $options['accepted'], PDO::PARAM_STR);
+        $result->bindParam(':study_fee', $options['study_fee'], PDO::PARAM_INT);
+        $result->bindParam(':residence', $options['residence'], PDO::PARAM_STR);
+        $result->bindParam(':phone_number', $options['phone_number'], PDO::PARAM_STR);
+        $result->bindParam(':type_of_study', $options['type_of_study'], PDO::PARAM_INT);
         if ($result->execute()) {
             // Если запрос выполенен успешно, возвращаем id добавленной записи
             return $db->lastInsertId();
         }
         // Иначе возвращаем 0
         return 0;
+        
     }
 
+
+    /**
+     * Удаляет студента с указанным id
+     * @param integer $id <p>id студента</p>
+     * @return boolean <p>Результат выполнения метода</p>
+     */
+    public static function deleteStudentById($id)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = "DELETE FROM students WHERE id_of_student = :id";
+
+        // Получение и возврат результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+        return $result->execute();
+    }
+
+    /**
+     * Подсчитывает количество неотчисленных студентов на текущий момент id
+     */
+    public static function countOfStudents()
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = "SELECT id_of_student FROM students WHERE expelled IS NULL OR expelled = 0";
+
+        // Получение и возврат результатов.
+        $result = $db->query($sql)->rowCount();
+        return ($result);
+    }
+
+    /**
+     * Вычисляет среднюю оценку всех студентов на текущий момент
+     */
+    public static function averageRatingOfAll()
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = "SELECT AVG(evaluation) FROM rating";
+
+        // Получение и возврат результатов.
+        $result = $db->query($sql)->fetchAll();
+        $result = round ($result[0][0], 2);
+        return ($result);
+    }
+
+    /**
+     * Возвращает массив с данными последнего принятого студента
+     */
+    public static function lastAccept()
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        $result = $db->query('
+                SELECT 
+                    id_of_student, 
+                    surname_of_student,
+                    student_name,
+                    student_second_name,
+                    accepted
+                FROM students
+                 WHERE accepted = (SELECT MAX(accepted) FROM students)'
+        );
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        return $result->fetch();
+
+    }
 
 }

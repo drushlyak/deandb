@@ -30,7 +30,7 @@
                 <?php foreach ($studentsList as $student): ?>
                     <tr>
                         <td><?php echo $student['id_of_student']; ?></td>
-                        <td><?php echo $student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name']; ?></td>
+                        <td><?php echo "<a href = \"/student/".$student['id_of_student']."\">".$student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name']; ?></a></td>
                         <td><?php echo $student['group_code']; ?></td>
                         <td><a href="/admin/student/update/<?php echo $student['id_of_student']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
                         <td><a href="/admin/student/delete/<?php echo $student['id_of_student']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>

@@ -26,14 +26,13 @@
                 <h2 class="title text-center">Карточка студента</h2>
                 <div class="product-details"><!--product-details-->
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                             <div class="view-product">
-                                <img src="<?php echo Student::getImage($student['id_of_student']); ?>" width="200" alt="" />
+                                <img   src="<?php echo Student::getImage($student['id_of_student']); ?>"  height="100%" width="100%" alt="" />
                             </div>
                         </div>
-                        <div class="col-sm-7">
+                        <div class="col-sm-8">
                             <div class="product-information"><!--/product-information-->
-                                <!--<img src="/template/images/product-details/new.jpg" class="newarrival" alt="" /> -->
                                 <h2><?php echo $student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name'];?></h2>
 
                                 <p><b>Группа обучения:</b> <?php echo $student['group_code'];?></p>
@@ -43,22 +42,45 @@
                                 <p><b>Проживает по адресу:</b> <?php echo $student['residence'];?></p>
                                 <p><b>Контактный телефон:</b> <?php echo $student['phone_number'];?></p>
 
-                                <a href="/rating/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
+                                <a href="/admin/student/update/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
+                                    <i class="fa fa-pencil"></i>
+                                    Редактирование
+                                </a>
+
+                                <?php if (isset ($studentRating[0])) : ?>
+                                <h2>Успеваемость студента за период обучения:</h2>
+
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <th>Дисциплина</th>
+                                        <th>Семестр</th>
+                                        <th>Оценка</th>
+                                    </tr>
+                                    <?php $i = 0; $averageEvaluation = 0;?>
+                                    <?php foreach ($studentRating as $currentDiscipline) {?>
+                                        <tr>
+                                            <td><?php echo $currentDiscipline['name_of_discipline']; ?> </td>
+                                            <td align="center"><?php echo $currentDiscipline['semester_id']; ?></td>
+                                            <td align="center"><?php echo $currentDiscipline['evaluation'];
+                                                $averageEvaluation = $averageEvaluation + $currentDiscipline['evaluation'];
+                                                $i++;
+                                                ?></td>
+                                        </tr>
+
+                                    <?php }; ?>
+
+                                    </tbody>
+
+                                </table>
+
+                                <?php endif; ?>
+
+                                <!--<a href="/rating/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
                                     <i class="fa fa-tachometer"></i>
                                     Успеваемость
-                                </a>
+                                </a> -->
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">                                
-                        <div class="col-sm-12">
-                            <h5>Дополнительные опции:</h5>
-
-                            <a href="/admin/student/update/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
-                                <i class="fa fa-pencil"></i>
-                                Редактирование
-                            </a>
-
                         </div>
                     </div>
                 </div><!--/product-details-->

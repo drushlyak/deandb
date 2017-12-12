@@ -9,16 +9,16 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="/admin">Админпанель</a></li>
-                    <li><a href="/admin/category">Управление категориями</a></li>
-                    <li class="active">Удалить категорию</li>
+                    <li><a href="/admin/group">Управление группами</a></li>
+                    <li class="active">Удалить группу</li>
                 </ol>
             </div>
 
 
-            <h4>Удалить категорию #<?php echo $id; ?></h4>
+            <h4>Удалить группу ID#<?php echo $id; ?></h4>
 
 
-            <p>Вы действительно хотите удалить эту категорию?</p>
+            <p>Вы действительно хотите удалить эту группу?</p>
 
             <form method="post">
                 <input type="submit" name="submit" value="Удалить" />
