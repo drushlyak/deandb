@@ -22,15 +22,57 @@
                 </div>
             </div>
 
-       <!--     <div class="col-sm-9 padding-right">
-                <div class="features_items"><!--features_items-->
-            <!--  <h2 class="title text-center">Последние товары</h2>
+    <div class="col-sm-9 padding-center">
 
-                    
+        <div class="features_items"><!--features_items-->
+            <h2 class="title text-center">Добро пожаловать!</h2>
+
+
+            <h4>Сейчас в нашем ВУЗе...</h4>
+
+            <div class="col-sm-8 padding-center">
+            <br/>
+
+
+                <table class="table-bordered table-striped table">
+
+                    <tr>
+                        <td align="center">Количество учащихся студентов, чел.</td>
+                        <td align="center"><?php echo $countOfStudents ?></td>
+                    </tr>
+                    <tr>
+                        <td align="center">Количество групп</td>
+                        <td align="center"><?php echo $countOfGroups ?></td>
+                    </tr>
+                    <tr>
+                        <td align="center">Преподавательский состав, чел.</td>
+                        <td align="center"><?php echo $countOfLecturers ?></td>
+                    </tr>
+                    <tr>
+                        <td align="center">Количество преподаваемых дисциплин</td>
+                        <td align="center"><?php echo $countOfDisciplines ?></td>
+                    </tr>
+                    <tr>
+                        <td align="center">Количество форм обучения</td>
+                        <td align="center"><?php echo $countTypesOfStudy ?></td>
+                    </tr>
+                    <tr>
+                        <td align="center">Средний балл студентов</td>
+                        <td align="center"><?php echo $averageRatingOfAll ?></td>
+                    </tr>
+                    <tr>
+                        <td align="center">Последний принятый студент</td>
+                        <td align="center"><?php echo $lastAccept['surname_of_student']." "
+                                .mb_substr($lastAccept['student_name'],0,1)."."
+                                .mb_substr($lastAccept['student_second_name'],0,1).". / ".$lastAccept['accepted'] ?></td>
+                    </tr>
+                </table>
+
+              <p>Для добавления и редактирования информации <a href="/user/login/">авторизируйтесь</a> и зайдите в <a href="/admin/">админпанель</a></p>
 
                 </div><!--features_items-->
 
-
+</div>
             </div>
         </div>
     </div>

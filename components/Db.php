@@ -54,4 +54,27 @@ class Db
 
     }
 
+    public static function getRowById($id,$tableName)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = 'SELECT * FROM '.$tableName.' WHERE id = :id';
+
+        // Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+
+        // Указываем, что хотим получить данные в виде массива
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        // Выполняем запрос
+        $result->execute();
+
+        // Возвращаем данные
+        return $result->fetch();
+    }
+
+
 }

@@ -64,7 +64,7 @@ class Fee
         $result = $db->query('SELECT id, kind_of_study_fees, arrears FROM study_fees');
 
         // Получение и возврат результатов
-        $FeeList = array();
+        $feeList = array();
         $i = 0;
         while ($row = $result->fetch()) {
             $feeList[$i]['id'] = $row['id'];

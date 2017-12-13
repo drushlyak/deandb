@@ -14,6 +14,8 @@ class SiteController
 
         $countOfLecturers = Db::countRowsInTable('lecturers');
 
+        $countTypesOfStudy = Db::countRowsInTable('types_of_study');
+
         $countOfDisciplines = Db::countRowsInTable('disciplines');
 
         $averageRatingOfAll = Student::averageRatingOfAll();

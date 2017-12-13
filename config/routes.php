@@ -31,11 +31,16 @@ return array(
     'admin/fee/update/([0-9]+)' => 'adminFee/update/$1',
     'admin/fee/delete/([0-9]+)' => 'adminFee/delete/$1',
     'admin/fee' => 'adminFee/index',
-    //управление лекторами:
+    //управление преподавателями:
     'admin/lecturer/create' => 'adminLecturer/create',
     'admin/lecturer/update/([0-9]+)' => 'adminLecturer/update/$1',
     'admin/lecturer/delete/([0-9]+)' => 'adminLecturer/delete/$1',
     'admin/lecturer' => 'adminLecturer/index',
+	//управление семестрами:
+    'admin/semester/create' => 'adminSemester/create',
+    'admin/semester/update/([0-9]+)' => 'adminSemester/update/$1',
+    'admin/semester/delete/([0-9]+)' => 'adminSemester/delete/$1',
+    'admin/semester' => 'adminSemester/index',
 
     // Админпанель:
     'admin' => 'admin/index',

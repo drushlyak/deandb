@@ -8,7 +8,8 @@
             
             <h3>Привет, <?php echo $user['name'];?>!</h3>
             <ul>
-                <li><a href="/cabinet/edit">Редактировать данные</a></li>
+                <li><a href="/cabinet/edit/">Редактировать свои данные</a></li>
+                <li><a href="/admin/">Перейти к администрированию деканата</a></li>
             </ul>
             
         </div>

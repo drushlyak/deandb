@@ -64,7 +64,7 @@ class Lecturer
         $result = $db->query('SELECT id, lecturer, full_time_job FROM lecturers');
 
         // Получение и возврат результатов
-        $FeeList = array();
+        $lecturerList = array();
         $i = 0;
         while ($row = $result->fetch()) {
             $lecturerList[$i]['id'] = $row['id'];
@@ -116,5 +116,7 @@ class Lecturer
         $result->bindParam(':full_time_job', $full_time_job, PDO::PARAM_INT);
         return $result->execute();
     }
+
+    
     
 }

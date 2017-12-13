@@ -19,6 +19,7 @@
                 <li><a href="/admin/group">Управление группами</a></li>
                 <li><a href="/admin/fee">Управление оплатами</a></li>
                 <li><a href="/admin/lecturer">Управление преподавателями</a></li>
+                <li><a href="/admin/semester">Управление семестрами</a></li>
             </ul>
             
         </div>

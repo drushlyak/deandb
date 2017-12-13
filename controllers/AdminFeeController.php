@@ -52,7 +52,7 @@ class AdminFeeController extends AdminBase
                 Fee::createFee($kind_of_study_fees);
 
                 // Перенаправляем пользователя на страницу управлениями оплатами
-                header("Location: /admin/lector");
+                header("Location: /admin/semestr");
             }
         }
 
@@ -82,7 +82,7 @@ class AdminFeeController extends AdminBase
             Fee::updateFeeById($id, $kind_of_study_fees, $arrears);
 
             // Перенаправляем пользователя на страницу управлениями категориями
-            header("Location: /admin/lector");
+            header("Location: /admin/fee");
         }
 
         // Подключаем вид
@@ -106,7 +106,7 @@ class AdminFeeController extends AdminBase
             Db::deleteRowById($tableName,$id);
 
             // Перенаправляем пользователя на страницу управлениями оплатами
-            header("Location: /admin/lector");
+            header("Location: /admin/semestr");
         }
 
         // Подключаем вид

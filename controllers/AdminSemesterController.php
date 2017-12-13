@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Контроллер AdminLecturerController
- * Управление преподавателями в админпанели
+ * Контроллер AdminSemesterController
+ * Управление семестрами в админпанели
  */
-class AdminLecturerController extends AdminBase
+class AdminSemesterController extends AdminBase
 {
 
     /**
-     * Action для страницы "Управление преподавателями"
+     * Action для страницы "Управление семестрами"
      */
     public function actionIndex()
     {
@@ -16,15 +16,17 @@ class AdminLecturerController extends AdminBase
         self::checkAdmin();
 
         // Получаем список категорий
-        $lecturersList = Lecturer::getLecturersListAdmin();
+        $semestersList = Semester::getSemestersListAdmin();
 
         // Подключаем вид
-        require_once(ROOT . '/views/admin_lecturer/index.php');
+        require_once(ROOT . '/views/admin_semester/index.php');
         return true;
+
+
     }
 
     /**
-     * Action для страницы "Добавить преподавателя"
+     * Action для страницы "Добавить семестр"
      */
     public function actionCreate()
     {
@@ -35,34 +37,34 @@ class AdminLecturerController extends AdminBase
         if (isset($_POST['submit'])) {
             // Если форма отправлена
             // Получаем данные из формы
-            $lecturer = $_POST['lecturer'];
-            $full_time_job = $_POST['full_time_job'];
+            $semester = $_POST['semester'];
+            $information = $_POST['information'];
 
             // Флаг ошибок в форме
             $errors = false;
 
             // При необходимости можно валидировать значения нужным образом
-            if (!isset($lecturer) || empty($lecturer)) {
+            if (!isset($semester) || empty($semester)) {
                 $errors[] = 'Заполните поле';
             }
 
 
             if ($errors == false) {
                 // Если ошибок нет
-                // Добавляем нового преподавателя
-                Lecturer::createLecturer($lecturer,$full_time_job);
+                // Добавляем новую строку в таблицу
+                Semester::createSemester($semester,$information);
 
-                // Перенаправляем пользователя на страницу управления
-                header("Location: /admin/lecturer");
+                // Перенаправляем пользователя на страницу управлениями
+                header("Location: /admin/semester");
             }
         }
 
-        require_once(ROOT . '/views/admin_lecturer/create.php');
+        require_once(ROOT . '/views/admin_semester/create.php');
         return true;
     }
 
     /**
-     * Action для страницы "Редактировать преподавателя"
+     * Action для страницы "Редактировать"
      */
     public function actionUpdate($id)
     {
@@ -70,37 +72,39 @@ class AdminLecturerController extends AdminBase
         self::checkAdmin();
 
         // Получаем данные о конкретной категории
-        $lecturer = Lecturer::getLecturerById($id);
+        $tableName = "semesters";
+        $semesters = Db::getRowById($id, $tableName);
 
         // Обработка формы
         if (isset($_POST['submit'])) {
+
             // Если форма отправлена
             // Получаем данные из формы
-            $lecturer = $_POST['lecturer'];
-            $full_time_job = $_POST['full_time_job'];
+            $semester = $_POST['semester'];
+            $information = $_POST['information'];
 
             // Флаг ошибок в форме
             $errors = false;
 
             // При необходимости можно валидировать значения нужным образом
-            if (!isset($lecturer) || empty($lecturer)) {
+            if (!isset($semester) || empty($semester)) {
                 $errors[] = 'Заполните поле';
             }
 
             // Сохраняем изменения
-            Lecturer::updateLecturerById($id, $lecturer, $full_time_job);
+            Semester::updateSemesterById($id, $semester, $information);
 
             // Перенаправляем пользователя на страницу управления
-            header("Location: /admin/lecturer");
+            header("Location: /admin/semester");
         }
 
         // Подключаем вид
-        require_once(ROOT . '/views/admin_lecturer/update.php');
+        require_once(ROOT . '/views/admin_semester/update.php');
         return true;
     }
 
     /**
-     * Action для страницы "Удалить преподавателя"
+     * Action для страницы "Удалить семестр"
      */
     public function actionDelete($id)
     {
@@ -111,11 +115,11 @@ class AdminLecturerController extends AdminBase
         if (isset($_POST['submit'])) {
             // Если форма отправлена
             // Удаляем оплату
-            $tableName = "lecturers";
+            $tableName = "semesters";
             Db::deleteRowById($tableName,$id);
 
             // Перенаправляем пользователя на страницу управления
-            header("Location: /admin/lecturer");
+            header("Location: /admin/semester");
         }
 
         // Подключаем вид
