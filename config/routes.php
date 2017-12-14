@@ -41,6 +41,21 @@ return array(
     'admin/semester/update/([0-9]+)' => 'adminSemester/update/$1',
     'admin/semester/delete/([0-9]+)' => 'adminSemester/delete/$1',
     'admin/semester' => 'adminSemester/index',
+    //управление видами учебы:
+    'admin/study/create' => 'adminStudy/create',
+    'admin/study/update/([0-9]+)' => 'adminStudy/update/$1',
+    'admin/study/delete/([0-9]+)' => 'adminStudy/delete/$1',
+    'admin/study' => 'adminStudy/index',
+    //управление дисциплинами:
+    'admin/discipline/create' => 'adminDiscipline/create',
+    'admin/discipline/update/([0-9]+)' => 'adminDiscipline/update/$1',
+    'admin/discipline/delete/([0-9]+)' => 'adminDiscipline/delete/$1',
+    'admin/discipline' => 'adminDiscipline/index',
+    //управление оценивание:
+    'admin/examination/create' => 'adminExamination/create',
+    'admin/examination/update/([0-9]+)' => 'adminExamination/update/$1',
+    'admin/examination/delete/([0-9]+)' => 'adminExamination/delete/$1',
+    'admin/examination' => 'adminExamination/index',
 
     // Админпанель:
     'admin' => 'admin/index',

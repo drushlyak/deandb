@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a562f1d2-ddbd-4f48-bc76-5b89cc168efa" name="deandb" url="http://92.63.111.206">
+        <fileTransfer host="92.63.111.206" port="21" rootFolder="/domains/jump-and-fly.ru/public_html/deandb" password="dfc6dfe4dfc2dfe8df9edf9fdfc1dfe2df93dff2" username="ammas178">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

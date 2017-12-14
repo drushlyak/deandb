@@ -1,39 +1,39 @@
 <?php
 
-class Lecturer
+class Examination
 {
 
     /**
      * Returns single blog fees with specified id
      * @param integer $id
      */
-    public static function getLecturerList()
+    public static function getExaminationList()
     {
 
         $db = Db::getConnection();
 
-        $lecturersList = array();
+        $examinationsList = array();
 
-        $result = $db->query('SELECT id, lecturer FROM lecturers');
+        $result = $db->query('SELECT id, type_of_examination FROM types_of_examination');
 
         $i = 0;
         while ($row = $result->fetch()) {
-            $lecturersList[$i]['id'] = $row['id'];
-            $lecturersList[$i]['lecturer'] = $row['lecturer'];
+            $examinationsList[$i]['id'] = $row['id'];
+            $examinationsList[$i]['type_of_examination'] = $row['type_of_examination'];
             $i++;
         }
 
-        return $lecturersList;
+        return $examinationsList;
     }
 
 
-    public static function getLecturerById($id)
+   /* public static function getExaminationById($id)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'SELECT * FROM lecturers WHERE id = :id';
+        $sql = 'SELECT * FROM types_of_examination WHERE id = :id';
 
         // Используется подготовленный запрос
         $result = $db->prepare($sql);
@@ -47,7 +47,7 @@ class Lecturer
 
         // Возвращаем данные
         return $result->fetch();
-    }
+    } */
 
 
 
@@ -55,65 +55,73 @@ class Lecturer
      * Возвращает массив оплат для списка в админпанели <br/>
      * @return array <p>Массив оплат</p>
      */
-    public static function getLecturersListAdmin()
+    public static function getExaminationsListAdmin()
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Запрос к БД
-        $result = $db->query('SELECT id, lecturer, full_time_job FROM lecturers');
+        $result = $db->query('SELECT 
+            e.id,
+            e.type_of_examination,
+            e.id_examiner, 
+            l.lecturer
+            FROM types_of_examination e
+            INNER JOIN lecturers l ON  l.id = e.id_examiner 
+');
 
         // Получение и возврат результатов
-        $lecturerList = array();
+        $examinationList = array();
         $i = 0;
         while ($row = $result->fetch()) {
-            $lecturerList[$i]['id'] = $row['id'];
-            $lecturerList[$i]['lecturer'] = $row['lecturer'];
-            $lecturerList[$i]['full_time_job'] = $row['full_time_job'];
+            $examinationList[$i]['id'] = $row['id'];
+            $examinationList[$i]['type_of_examination'] = $row['type_of_examination'];
+            $examinationList[$i]['id_examiner'] = $row['id_examiner'];
+            $examinationList[$i]['lecturer'] = $row['lecturer'];
             $i++;
         }
-        return $lecturerList;
+        return $examinationList;
     }
 
 
     /**
-     * Добавляет новую оплату
+     * Добавляет новую строку
      * @param string $name <p>Название</p>
      * @return boolean <p>Результат добавления записи в таблицу</p>
      */
-    public static function createLecturer($lecturer,$full_time_job)
+    public static function createExamination($type_of_examination,$id_examiner)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = "INSERT INTO lecturers (lecturer,full_time_job) VALUES (:lecturer,:full_time_job)";
+        $sql = "INSERT INTO types_of_examination (type_of_examination,id_examiner) VALUES (:type_of_examination,:id_examiner)";
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
-        $result->bindParam(':lecturer', $lecturer, PDO::PARAM_STR);
-        $result->bindParam(':full_time_job', $full_time_job, PDO::PARAM_INT);
+        $result->bindParam(':type_of_examination', $type_of_examination, PDO::PARAM_STR);
+        $result->bindParam(':id_examiner', $id_examiner, PDO::PARAM_INT);
 
         return $result->execute();
     }
 
-    public static function updateLecturerById($id, $lecturer, $full_time_job)
+    public static function updateExaminationById($id, $type_of_examination,$id_examiner)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = "UPDATE lecturers
+        $sql = "UPDATE types_of_examination
             SET 
-                lecturer = :lecturer, 
-                full_time_job = :full_time_job
+                type_of_examination = :type_of_examination, 
+                id_examiner = :id_examiner
             WHERE id = :id";
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
         $result->bindParam(':id', $id, PDO::PARAM_INT);
-        $result->bindParam(':lecturer', $lecturer, PDO::PARAM_STR);
-        $result->bindParam(':full_time_job', $full_time_job, PDO::PARAM_INT);
+        $result->bindParam(':type_of_examination', $type_of_examination, PDO::PARAM_STR);
+        $result->bindParam(':id_examiner', $id_examiner, PDO::PARAM_INT);
         return $result->execute();
     }
 

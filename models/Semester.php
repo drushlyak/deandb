@@ -13,16 +13,18 @@ class Semester
 
         $groupList = array();
 
-        $result = $db->query('SELECT id, semester FROM lecturers');
+        $sql = $db->query('SELECT id, semester FROM semesters');
+
+        $semesterList = array();
 
         $i = 0;
-        while ($row = $result->fetch()) {
-            $lecturerList[$i]['id'] = $row['id'];
-            $lecturerList[$i]['semester'] = $row['semester'];
+        while ($row = $sql->fetch()) {
+            $semesterList[$i]['id'] = $row['id'];
+            $semesterList[$i]['semester'] = $row['semester'];
             $i++;
         }
 
-        return $lecturerList;
+        return $semesterList;
     }
 
         /**

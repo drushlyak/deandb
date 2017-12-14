@@ -20,6 +20,9 @@
                 <li><a href="/admin/fee">Управление оплатами</a></li>
                 <li><a href="/admin/lecturer">Управление преподавателями</a></li>
                 <li><a href="/admin/semester">Управление семестрами</a></li>
+                <li><a href="/admin/study">Управление видами обучения</a></li>
+                <li><a href="/admin/discipline">Управление предметами</a></li>
+                <li><a href="/admin/examination">Управление оцениванием</a></li>
             </ul>
             
         </div>

@@ -9,16 +9,16 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="/admin">Админпанель</a></li>
-                    <li><a href="/admin/semester">Управление семестрами</a></li>
-                    <li class="active">Удалить семестр</li>
+                    <li><a href="/admin/discipline">Управление предметами</a></li>
+                    <li class="active">Удалить предмет</li>
                 </ol>
             </div>
 
 
-            <h4>Удалить семестр ID#<?php echo $id; ?></h4>
+            <h4>Удалить предмет ID#<?php echo $id; ?></h4>
 
 
-            <p>Вы действительно хотите удалить этот семестр?</p>
+            <p>Вы действительно хотите удалить этот предмет?</p>
 
             <form method="post">
                 <input type="submit" name="submit" value="Удалить" />
