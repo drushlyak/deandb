@@ -68,7 +68,7 @@ class Examination
             l.lecturer
             FROM types_of_examination e
             INNER JOIN lecturers l ON  l.id = e.id_examiner 
-');
+        ');
 
         // Получение и возврат результатов
         $examinationList = array();

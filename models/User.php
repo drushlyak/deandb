@@ -170,4 +170,75 @@ class User
         }
     }
 
+
+    public static function getUsersListAdmin()
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Запрос к БД
+        $result = $db->query('SELECT 
+            id,
+            name,
+            email,
+            password,
+            role
+            FROM user
+        ');
+
+        // Получение и возврат результатов
+        $userList = array();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $userList[$i]['id'] = $row['id'];
+            $userList[$i]['name'] = $row['name'];
+            $userList[$i]['email'] = $row['email'];
+            $userList[$i]['password'] = $row['password'];
+            $userList[$i]['role'] = $row['role'];
+            $i++;
+        }
+        return $userList;
+    }
+
+    public static function createUser($name, $email, $password,$role='')
+    {
+
+        $db = Db::getConnection();
+
+        $sql = 'INSERT INTO user (name, email, password,role) '
+            . 'VALUES (:name, :email, :password, :role)';
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':name', $name, PDO::PARAM_STR);
+        $result->bindParam(':email', $email, PDO::PARAM_STR);
+        $result->bindParam(':password', $password, PDO::PARAM_STR);
+        $result->bindParam(':role', $role, PDO::PARAM_STR);
+
+        echo $sql;
+
+        return $result->execute();
+    }
+
+    public static function updateUser($name, $email, $password,$role='')
+    {
+
+        $db = Db::getConnection();
+
+        $sql = "UPDATE user
+            SET
+            name = :name, 
+            email = :email,
+            password = :password,
+            role = :role
+            WHERE id = :id";
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':name', $name, PDO::PARAM_STR);
+        $result->bindParam(':email', $email, PDO::PARAM_STR);
+        $result->bindParam(':password', $password, PDO::PARAM_STR);
+        $result->bindParam(':role', $role, PDO::PARAM_STR);
+
+        return $result->execute();
+    }
+
 }

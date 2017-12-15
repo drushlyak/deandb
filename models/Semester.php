@@ -6,7 +6,7 @@ class Semester
     /**
      * возвращает список семестров
      */
-    public static function getSemesterList()
+    public static function getSemestersList()
     {
 
         $db = Db::getConnection();

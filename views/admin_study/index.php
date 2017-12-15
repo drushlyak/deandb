@@ -22,7 +22,7 @@
             <table class="table-bordered table-striped table">
                 <tr>
                     <th>ID</th>
-                    <th>Вид обучения</th>
+                    <th></th>
                     <th>Срок действия лицензии</th>
                     <th></th>
                     <th></th>

@@ -6,25 +6,25 @@ class Discipline
     /**
     * возвращает список
      */
-    /*
-    public static function getSemesterList()
+
+    public static function getDisciplinesList()
     {
 
         $db = Db::getConnection();
 
-        $groupList = array();
+        $disciplineList = array();
 
-        $result = $db->query('SELECT id, semester FROM lecturers');
+        $result = $db->query('SELECT id, name_of_discipline FROM disciplines');
 
         $i = 0;
         while ($row = $result->fetch()) {
-            $lecturerList[$i]['id'] = $row['id'];
-            $lecturerList[$i]['semester'] = $row['semester'];
+            $disciplineList[$i]['id'] = $row['id'];
+            $disciplineList[$i]['name_of_discipline'] = $row['name_of_discipline'];
             $i++;
         }
 
-        return $lecturerList;
-    }  */
+        return $disciplineList;
+    }  
 
     
     
@@ -85,7 +85,7 @@ class Discipline
         $result->bindParam(':number_of_academic_hours', $number_of_academic_hours, PDO::PARAM_INT);
         $result->bindParam(':type_of_examination', $type_of_examination, PDO::PARAM_INT);
         $result->bindParam(':lecturer_id', $lecturer_id, PDO::PARAM_INT);
-        
+
         return $result->execute();
     }
 

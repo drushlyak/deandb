@@ -56,7 +56,22 @@ return array(
     'admin/examination/update/([0-9]+)' => 'adminExamination/update/$1',
     'admin/examination/delete/([0-9]+)' => 'adminExamination/delete/$1',
     'admin/examination' => 'adminExamination/index',
-
+    //управление пользователями:
+    'admin/user/create' => 'adminUser/create',
+    'admin/user/update/([0-9]+)' => 'adminUser/update/$1',
+    'admin/user/delete/([0-9]+)' => 'adminUser/delete/$1',
+    'admin/user' => 'adminUser/index',
+    //управление задолженностью:
+    'admin/debt/create' => 'adminDebt/create',
+    'admin/debt/update/([0-9]+)' => 'adminDebt/update/$1',
+    'admin/debt/delete/([0-9]+)' => 'adminDebt/delete/$1',
+    'admin/debt' => 'adminDebt/index',
+    //управление рейтингом:
+    'admin/rating/create' => 'adminRating/create',
+    'admin/rating/update/([0-9]+)' => 'adminRating/update/$1',
+    'admin/rating/delete/([0-9]+)' => 'adminRating/delete/$1',
+    'admin/rating' => 'adminRating/index',
+    
     // Админпанель:
     'admin' => 'admin/index',
 

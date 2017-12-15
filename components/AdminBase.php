@@ -11,7 +11,7 @@ abstract class AdminBase
      * Метод, который проверяет пользователя на то, является ли он администратором
      * @return boolean
      */
-    public static function checkAdmin()
+    public static function checkAdmin($role='administrator')
     {
         // Проверяем авторизирован ли пользователь. Если нет, он будет переадресован
         $userId = User::checkLogged();
@@ -19,8 +19,8 @@ abstract class AdminBase
         // Получаем информацию о текущем пользователе
         $user = User::getUserById($userId);
 
-        // Если роль текущего пользователя "admin", пускаем его в админпанель
-        if ($user['role'] == 'administrator') {
+        // Если роль текущего пользователя соответсвует запрашиваемой, пускаем его в админпанель
+        if (($user['role'] == $role)||$user['role'] == 'superadmin') {
             return true;
         }
 
@@ -28,4 +28,6 @@ abstract class AdminBase
         die('Access denied');
     }
 
+	
 }
+
