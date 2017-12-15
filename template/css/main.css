@@ -11,6 +11,7 @@ body {
   background:;
   position: relative;
   font-weight:400px;
+  margin-bottom: 30px;
 }
 
 ul li {
@@ -347,11 +348,10 @@ ul.sub-menu {
 
 #footer {
   background: #F0F0E9;
-  /*position: fixed;
+  position: fixed;
   left: 0;
   bottom: 0;
-  color: #fff;
-  width: 100%; */
+  width: 100%;
 }
 
 
@@ -1127,7 +1127,7 @@ h2.title {
   border-color: #FE980F;
   color: #FFFFFF;
   cursor: default;
-  z-index: 2;
+  z-index: auto;
 }
 
 .pagination  li  a, .pagination  li  span {

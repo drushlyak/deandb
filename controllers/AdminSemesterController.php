@@ -123,7 +123,7 @@ class AdminSemesterController extends AdminBase
         }
 
         // Подключаем вид
-        require_once(ROOT . '/views/admin_lecturer/delete.php');
+        require_once(ROOT . '/views/admin_semester/delete.php');
         return true;
     }
 

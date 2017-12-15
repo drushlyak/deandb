@@ -32,9 +32,7 @@
                     </div><!--/sign up form-->
                 <?php endif; ?>
 
-
-                <br/>
-                <br/>
+            
             </div>
         </div>
     </div>

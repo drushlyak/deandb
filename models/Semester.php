@@ -37,7 +37,7 @@ class Semester
         $db = Db::getConnection();
 
         // Запрос к БД
-        $result = $db->query('SELECT id, semester, information FROM semesters');
+        $result = $db->query('SELECT id, semester, information FROM semesters ORDER BY semester');
 
         // Получение и возврат результатов
         $semesterList = array();
