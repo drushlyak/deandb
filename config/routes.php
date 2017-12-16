@@ -2,8 +2,9 @@
 
 return array(
     
-    'student/([0-9]+)' => 'student/view/$1', // actionView в ProductController  student/view/$1
-    'student/edit/([0-9]+)' => 'student/edit/$1', // actionView в ProductController  student/view/$1
+    'student/([0-9]+)' => 'student/view/$1', // actionView
+    'student/edit/([0-9]+)' => 'student/edit/$1', // actionView
+    'student/search/(.+)' => 'student/search/$1',
 
     'catalog' => 'catalog/index', // actionIndex в CatalogController
 

@@ -5,6 +5,18 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
+
+                    <h2>Поиск студента</h2>
+                    <form>
+                        <div class="input-group">
+                            <input id="searchingText" type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button onclick="searchTextInDb()" class="btn btn-default" type="button">Поиск!</button>
+                                </span>
+                        </div>
+                    </form>
+                    <br/>
+
                     <h2>Наши группы</h2>
                     <div class="panel-group category-products">
                         <?php foreach ($groups as $groupItem): ?>

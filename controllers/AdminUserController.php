@@ -81,9 +81,6 @@ class AdminUserController extends AdminBase
         // Проверка доступа
         self::checkAdmin('superadmin');
 
-        // Получаем список
-        //$usersList = User::getUsersListAdmin();
-
         // Получаем данные о конкретной категории
         $tableName = "user";
         $user = Db::getRowById($id, $tableName);
@@ -117,7 +114,7 @@ class AdminUserController extends AdminBase
                 }
 
                 if ($errors == false) {
-                    $result = User::createUser($name, $email, $password,$role);
+                    $result = User::updateUser($id,$name, $email, $password,$role);
                 }
 
                 // Перенаправляем пользователя на страницу управления

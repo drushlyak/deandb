@@ -28,6 +28,21 @@ abstract class AdminBase
         die('Access denied');
     }
 
+    public static function checkStatus($role='administrator')
+    {
+        // Проверяем авторизирован ли пользователь.
+        if (isset($_SESSION['user'])) {
+            $userId = $_SESSION['user'];
+            // Получаем информацию о текущем пользователе
+            $user = User::getUserById($userId);
+
+            // Если роль текущего пользователя соответсвует запрашиваемой, пускаем его в админпанель
+            if (($user['role'] == $role) || $user['role'] == 'superadmin') {
+                return true;
+            }
+        }
+
+    }
 	
 }
 

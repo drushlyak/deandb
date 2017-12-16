@@ -10,7 +10,7 @@
                 <ol class="breadcrumb">
                     <li><a href="/admin">Админпанель</a></li>
                     <li><a href="/admin/student">Управление студентами</a></li>
-                    <li class="active">Редактировать студента</li>
+                    <li class="active">Добавить студента</li>
                 </ol>
             </div>
 

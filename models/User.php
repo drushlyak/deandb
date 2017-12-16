@@ -214,12 +214,10 @@ class User
         $result->bindParam(':password', $password, PDO::PARAM_STR);
         $result->bindParam(':role', $role, PDO::PARAM_STR);
 
-        echo $sql;
-
         return $result->execute();
     }
 
-    public static function updateUser($name, $email, $password,$role='')
+    public static function updateUser($id,$name, $email, $password,$role)
     {
 
         $db = Db::getConnection();
@@ -233,6 +231,7 @@ class User
             WHERE id = :id";
 
         $result = $db->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_STR);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
         $result->bindParam(':email', $email, PDO::PARAM_STR);
         $result->bindParam(':password', $password, PDO::PARAM_STR);
@@ -241,4 +240,6 @@ class User
         return $result->execute();
     }
 
-}
+
+
+    }

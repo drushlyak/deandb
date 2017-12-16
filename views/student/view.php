@@ -5,6 +5,18 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
+
+                    <h2>Поиск студента</h2>
+                    <form>
+                        <div class="input-group">
+                            <input id="searchingText" type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button onclick="searchTextInDb()" class="btn btn-default" type="button">Поиск!</button>
+                                </span>
+                        </div>
+                    </form>
+                    <br/>
+
                     <h2>Наши группы</h2>
                     <div class="panel-group category-products">
                         <?php foreach ($groups as $groupItem): ?>
@@ -42,10 +54,12 @@
                                 <p><b>Проживает по адресу:</b> <?php echo $student['residence'];?></p>
                                 <p><b>Контактный телефон:</b> <?php echo $student['phone_number'];?></p>
 
+                                <?php if (isset($adminRole)):?>
                                 <a href="/admin/student/update/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
                                     <i class="fa fa-pencil"></i>
                                     Редактирование
                                 </a>
+                                <?php endif ?>
 
                                 <?php if (isset ($studentRating[0])) : ?>
                                 <h2>Успеваемость студента за период обучения:</h2>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Главная</title>
+        <title>АИС Деканат-DeanDB 1.0</title>
         <link href="/template/css/bootstrap.min.css" rel="stylesheet">
         <link href="/template/css/font-awesome.min.css" rel="stylesheet">
         <link href="/template/css/prettyPhoto.css" rel="stylesheet">
@@ -66,8 +66,8 @@
                                     <?php else: ?>
                                         <li><a href="/admin/student/create"><i class="fa fa-plus"></i> Добавить студента</a></li>
                                         <li><a href="/admin/"><i class="fa fa-edit"></i> Админпанель</a></li>
-                                        <li><a href="/cabinet/"><i class="fa fa-user"></i> Кабинет</a></li>
-                                        <li><a href="/user/logout/"><i class="fa fa-unlock"></i> Выход</a></li>                                        
+                                        <!--<li><a href="/cabinet/"><i class="fa fa-user"></i> Кабинет</a></li> -->
+                                        <li><a href="/user/logout/"><i class="fa fa-unlock"></i> Выход</a></li>
                                     <?php endif; ?>
                                 </ul>
                             </div>
@@ -94,6 +94,9 @@
                                     <li><a href="/catalog/">Все студенты</a></li>
                                     <li><a href="/about/">О проекте</a></li>
                                     <li><a href="/contacts/">Контакты</a></li>
+                                    <?php if (!User::isGuest()): ?>
+                                        <li><a href="/cabinet/">Кабинет</a></li>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>

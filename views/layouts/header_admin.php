@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Админпанель</title>
+        <title>АИС Деканат-DeanDB 1.0 - Админпанель</title>
         <link href="/template/css/bootstrap.min.css" rel="stylesheet">
         <link href="/template/css/font-awesome.min.css" rel="stylesheet">
         <link href="/template/css/prettyPhoto.css" rel="stylesheet">
@@ -48,6 +48,8 @@
                             </div>
                         </div>
                     </div>
+                    
+
                 </div><!--/header_top-->
 
                

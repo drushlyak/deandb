@@ -5,7 +5,17 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Каталог</h2>
+                    <h2>Поиск студента</h2>
+                    <form>
+                        <div class="input-group">
+                            <input id="searchingText" type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button onclick="searchTextInDb()" class="btn btn-default" type="button">Поиск!</button>
+                                </span>
+                        </div>
+                    </form>
+                    <br/>
+                    <h2>Наши группы</h2>
                     <div class="panel-group category-products">
                         <?php foreach ($groups as $groupItem): ?>
                             <div class="panel panel-default">
@@ -25,7 +35,7 @@
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items">
-                    <h2 class="title text-center">Наши студенты</h2>
+                    <h2 class="title text-center">Учащиеся</h2>
                     <?php foreach ($allStudents as $student): ?>
                         <div class="col-sm-3">
                             <div class="product-image-wrapper">

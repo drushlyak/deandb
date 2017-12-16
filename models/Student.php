@@ -369,4 +369,56 @@ class Student
 
     }
 
+    public static function getResultList($searchText)
+    {
+
+        $searchText = '%'.$searchText.'%';
+
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Получение и возврат результатов
+        $sql ="SELECT 
+                    s.id_of_student, 
+                    s.surname_of_student,
+                    s.student_name,
+                    s.student_second_name,
+                    s.group_number,
+                    s.residence,
+                    s.phone_number,
+                    g.group_code
+                FROM students s
+                INNER JOIN groups g ON  g.id = s.group_number 
+                WHERE  
+                    s.surname_of_student LIKE :searchText OR 
+                    s.student_name LIKE :searchText OR 
+                    s.student_second_name LIKE :searchText OR 
+                    s.group_number LIKE :searchText OR 
+                    s.residence LIKE :searchText OR 
+                    s.phone_number LIKE :searchText 
+                ORDER BY s.surname_of_student ASC";
+
+        $result = $db->prepare($sql);
+        $result->bindParam(':searchText', $searchText, PDO::PARAM_STR);
+
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+
+        $studentsList = array();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $studentsList[$i]['id_of_student'] = $row['id_of_student'];
+            $studentsList[$i]['surname_of_student'] = $row['surname_of_student'];
+            $studentsList[$i]['student_name'] = $row['student_name'];
+            $studentsList[$i]['student_second_name'] = $row['student_second_name'];
+            $studentsList[$i]['group_number'] = $row['group_number'];
+            $studentsList[$i]['residence'] = $row['residence'];
+            $studentsList[$i]['phone_number'] = $row['phone_number'];
+            $studentsList[$i]['group_code'] = $row['group_code'];
+            $i++;
+        }
+        return $studentsList;
+    }
+
+
 }
