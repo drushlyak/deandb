@@ -14,7 +14,10 @@
             </div>
 
             <a href="/admin/study/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить вид обучения</a>
-            
+            <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+            <div id="printContent">
+
             <h4>Перечень видов обучения</h4>
 
             <br/>
@@ -37,7 +40,7 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
-            
+            </div>
         </div>
     </div>
 </section>

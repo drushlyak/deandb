@@ -36,40 +36,34 @@
                 </div>
             </div>
 
-            <div  class="col-sm-9 padding-right">
-                <div class="features_items"><!--features_items-->
-                   <div id="printContent"> <h2 class="title text-center">Группа <?php echo $group_code['group_code']?></h2>
-                    <?php foreach ($groupStudents as $student): ?>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="<?php echo Student::getImage($student['id_of_student']); ?>" width="100" alt="" />
-                                       <!-- <h2><?php //echo $student['price'];?>$</h2> -->
-                                        <p>
-                                            <a href="/student/<?php echo $student['id_of_student'];?>">
-                                                <?php echo $student['surname_of_student']." ".$student['student_name']." ".$student['student_second_name'];?>
-                                            </a>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <?php endforeach;?>
-                    </div>
-                    <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
-                    <a href="/groupall/<?php echo $groupId ?>" class="btn btn-default back"><i class="fa fa-users"></i> Полный список группы</a>
+            <div class="col-sm-9 padding-right">
+                <div id="printContent"  class="features_items"><!--features_items-->
+                    <h2 class="title text-center">Группа <?php echo $group_code['group_code']?></h2>
+                    <table class="table-bordered table-striped table">
+                        <tr>
+                            <th>№ п/п</th>
+                            <th>Фамилия, имя, отчество</th>
+                            <th>ID студента</th>
+                        </tr>
+                        <?php $i = 1;
+                            foreach ($studentsList as $student): ?>
+                            <tr>
+                                <td><?php echo $i;  ?></td>
+                                <td><?php echo "<a href = \"/student/".$student['id_of_student']."\">".$student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name']; ?></a></td>
+                                <td><?php echo $student['id_of_student']; ?></td>
+                            </tr>
+                        <?php $i++;
+                            endforeach; ?>
+                    </table>
 
                 </div><!--features_items-->
 
+                <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
 
                 <br/>
                 <br/>
 
-                <!-- Постраничная навигация -->
-
-                <?php echo $pagination->get(); ?>
             </div>
         </div>
     </div>

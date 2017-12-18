@@ -14,7 +14,10 @@
             </div>
 
             <a href="/admin/fee/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить вид оплаты</a>
-            
+            <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+            <div id="printContent">
+
             <h4>Список видов оплат</h4>
 
             <br/>
@@ -37,7 +40,7 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
-            
+            </div>
         </div>
     </div>
 </section>

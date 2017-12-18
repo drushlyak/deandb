@@ -14,7 +14,11 @@
             </div>
 
             <a href="/admin/discipline/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить предмет</a>
-            
+
+            <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+            <div id="printContent">
+
             <h4>Перечень предметов</h4>
 
             <br/>
@@ -42,7 +46,7 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
-            
+            </div>
         </div>
     </div>
 </section>

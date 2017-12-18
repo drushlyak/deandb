@@ -33,7 +33,7 @@
             </div>
 
 
-            <div class="col-sm-9 padding-right">
+            <div id = "printContent" class="col-sm-9 padding-right">
                 <div class="features_items">
                     <h2 class="title text-center">Учащиеся</h2>
                     <?php foreach ($allStudents as $student): ?>
@@ -57,9 +57,9 @@
                         </div>
 
                         <?php endforeach; ?>
-
             </div>
-        </div>
+            </div>
+            </div>
     </div>
 </section>
 

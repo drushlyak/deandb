@@ -14,7 +14,10 @@
             </div>
 
             <a href="/admin/student/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить студента</a>
-            
+            <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+            <div id="printContent">
+
             <h4>Список студентов:</h4>
 
             <br/>

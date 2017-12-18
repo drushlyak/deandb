@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-9 padding-right">
+            <div id="printContent" class="col-sm-9 padding-right">
                 <h2 class="title text-center">Карточка студента</h2>
                 <div class="product-details"><!--product-details-->
                     <div class="row">
@@ -47,19 +47,19 @@
                             <div class="product-information"><!--/product-information-->
                                 <h2><?php echo $student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name'];?></h2>
 
-                                <p><b>Группа обучения:</b> <?php echo $student['group_code'];?></p>
+                                <p><b>Группа обучения:</b> <?php echo "<a href=\"/groupall/".$student['group_number']."\">".$student['group_code']."</a>" ;?></p>
                                 <p><b>Тип обучения:</b> <?php echo $student['type_of_study'];?></p>
                                 <p><b>Оплата обучения:</b> <?php echo $student['kind_of_study_fees'];?></p>
                                 <p><b>Поступил(а) на обучение:</b> <?php echo $student['accepted'];?></p>
                                 <p><b>Проживает по адресу:</b> <?php echo $student['residence'];?></p>
                                 <p><b>Контактный телефон:</b> <?php echo $student['phone_number'];?></p>
 
-                                <?php if (isset($adminRole)):?>
+                                <!--<?php if (isset($adminRole)):?>
                                 <a href="/admin/student/update/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
                                     <i class="fa fa-pencil"></i>
                                     Редактирование
                                 </a>
-                                <?php endif ?>
+                                <?php endif ?> -->
 
                                 <?php if (isset ($studentRating[0])) : ?>
                                 <h2>Успеваемость студента за период обучения:</h2>
@@ -90,7 +90,9 @@
 
                                 <?php endif; ?>
 
-                                <!--<a href="/rating/<?php echo $student['id_of_student']; ?>" class="btn btn-default cart">
+                                <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+                                <!--<a href="/rating/<?php// echo $student['id_of_student']; ?>" class="btn btn-default cart">
                                     <i class="fa fa-tachometer"></i>
                                     Успеваемость
                                 </a> -->

@@ -14,7 +14,11 @@
             </div>
 
             <a href="/admin/semester/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить семестр</a>
-            
+
+            <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+            <div id="printContent">
+
             <h4>Перечень семестров</h4>
 
             <br/>
@@ -37,7 +41,7 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
-            
+            </div>
         </div>
     </div>
 </section>

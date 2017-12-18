@@ -24,7 +24,24 @@
         document.location.href = $searchingText;
     }
 
+    function printTable (){
+        if (document.getElementById('printContent')) {
+            var textForPrint = document.getElementById('printContent').innerHTML;
+            textForPrint = textForPrint.replace("height=\"100%\" width=\"100%\"", "height=\"190px\" width=\"160px\"a");
+            textForPrint = textForPrint.replace("<a href=\"javascript: printTable();\" class=\"btn btn-default back\"><i class=\"fa fa-print\"></i> Печать</a>", "");
+            newWin=window.open('','printWindow','Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=0,Resizable=0');
+            newWin.document.open();
+            newWin.document.write(textForPrint);
+            newWin.document.close();
+        }
+        else {
+            window.print();
+        }
+    }
+
+
 </script>
+
 
 </body>
 </html>

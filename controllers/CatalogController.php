@@ -39,4 +39,19 @@ class CatalogController
         return true;
     }
 
+    public function actionGroupall ($groupId)
+    {
+        $groups = array();
+        $groups = Group::getGroupsList();
+
+        $group_code = Group::getNameGroupById($groupId);
+
+        $studentsList = array();
+        $studentsList = Student::getStudentsListByGroupAll($groupId);
+        
+        require_once(ROOT . '/views/catalog/groupall.php');
+
+        return true;
+    }
+
 }

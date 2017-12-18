@@ -14,8 +14,11 @@
             </div>
 
             <a href="/admin/examination/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить оценивание</a>
-            
-            <h4>Список оцениваний</h4>
+            <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+            <div id="printContent">
+
+                <h4>Список оцениваний</h4>
 
             <br/>
 
@@ -37,7 +40,7 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
-            
+            </div>
         </div>
     </div>
 </section>

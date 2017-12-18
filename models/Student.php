@@ -44,8 +44,44 @@ class Student
             return $students;
         }
     }
-    
-    
+
+
+    public static function getStudentsListByGroupAll($groupId)
+    {
+        if ($groupId) {
+
+            //$page = intval($page);
+            //$offset = ($page - 1) * self::SHOW_BY_DEFAULT;
+
+            $db = Db::getConnection();
+            $students = array();
+            $result = $db->query("SELECT id_of_student,surname_of_student,student_name,student_second_name FROM students "
+                ."WHERE group_number = ".$groupId." AND (expelled IS NULL OR expelled = 0) "
+                ."ORDER BY surname_of_student DESC");
+
+            $i = 0;
+
+            while ($row = $result->fetch()) {
+                $students[$i]['id_of_student'] = $row['id_of_student'];
+                $students[$i]['surname_of_student'] = $row['surname_of_student'];
+                $students[$i]['student_name'] = $row['student_name'];
+                $students[$i]['student_second_name'] = $row['student_second_name'];
+                //$students[$i]['group_number'] = $row['group_number'];
+                // $students[$i]['accepted'] = $row['accepted'];
+                //$students[$i]['expelled'] = $row['expelled'];
+                //$students[$i]['study_fee'] = $row['study_fee'];
+                //$students[$i]['residence'] = $row['residence'];
+                //$students[$i]['phone_number'] = $row['phone_number'];
+                //$students[$i]['type_of_study'] = $row['type_of_study'];
+                $i++;
+            }
+
+            return $students;
+        }
+    }
+
+
+
     /**
      * Returns student item by id
      * @param integer $id

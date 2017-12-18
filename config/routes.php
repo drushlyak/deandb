@@ -10,6 +10,7 @@ return array(
 
     'group/([0-9]+)/page-([0-9]+)' => 'catalog/group/$1/$2', // actionCategory в CatalogController
     'group/([0-9]+)' => 'catalog/group/$1', // actionCategory в CatalogController
+    'groupall/([0-9]+)' => 'catalog/groupall/$1', // actionCategory в CatalogController
 
     'user/register' => 'user/register',
     'user/login' => 'user/login',

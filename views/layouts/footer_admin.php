@@ -32,6 +32,20 @@
             return false;
         });
     });
+
+    function printTable (){
+        if (document.getElementById('printContent')) {
+            var textForPrint = document.getElementById('printContent').innerHTML;
+            newWin=window.open('','printWindow','Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=0,Resizable=0');
+            newWin.document.open();
+            newWin.document.write(textForPrint);
+            newWin.document.close();
+        }
+        else {
+            window.print();
+        }
+    }
+
 </script>
 
 </body>

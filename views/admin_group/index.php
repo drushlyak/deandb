@@ -14,7 +14,10 @@
             </div>
 
             <a href="/admin/group/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить группу</a>
-            
+            <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
+            <div id="printContent">
+
             <h4>Список групп</h4>
 
             <br/>
@@ -37,7 +40,7 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
-            
+            </div>
         </div>
     </div>
 </section>

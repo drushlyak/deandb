@@ -40,11 +40,12 @@
             <h2 class="title text-center">Добро пожаловать!</h2>
 
 
-            <h4>Сейчас в нашем ВУЗе...</h4>
+
 
             <div class="col-sm-8 padding-center">
             <br/>
-
+            <div id="printContent">
+                <h4>Сейчас в нашем ВУЗе...</h4>
 
                 <table class="table-bordered table-striped table">
 
@@ -80,11 +81,14 @@
                     </tr>
                 </table>
 
-              <p>Для добавления и редактирования информации <a href="/user/login/">авторизируйтесь</a> и зайдите в <a href="/admin/">админпанель</a></p>
+
+                 </div>
+
+                    <p>Для добавления и редактирования информации <a href="/user/login/">авторизируйтесь</a> и зайдите в <a href="/admin/">админпанель</a></p>
 
                 </div><!--features_items-->
 
-</div>
+
             </div>
         </div>
     </div>

@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-9 padding-right">
+                <div id="printContent" class="col-sm-9 padding-right">
                     <h2 class="title text-center">Результаты поиска</h2>
                     <div class="product-details"><!--product-details-->
                         <div class="row">
@@ -52,7 +52,7 @@
                                         <tr>
                                             <td><?php echo $student['id_of_student']; ?></td>
                                             <td><?php echo "<a href = \"/student/".$student['id_of_student']."\">".$student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name']; ?></a></td>
-                                            <td><a href = "/group/<?php echo $student['group_number'] ?>" > <?php echo $student['group_code']; ?></a></td>
+                                            <td><a href = "/groupall/<?php echo $student['group_number'] ?>" > <?php echo $student['group_code']; ?></a></td>
                                             <td><?php echo $student['residence']; ?></td>
                                             <td><?php echo $student['phone_number']; ?></td>
                                         </tr>
@@ -64,6 +64,9 @@
                     </div><!--/product-details-->
 
                 </div>
+
+                <a href="javascript: printTable();" class="btn btn-default back"><i class="fa fa-print"></i> Печать</a>
+
             </div>
         </div>
     </section>
