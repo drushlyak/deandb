@@ -70,9 +70,14 @@ class SiteController
         require_once(ROOT . '/views/site/about.php');
         return true;
     }
-    
-    
-    
+
+
+    public function actionNourl()  //если встречается УРЛ которого нет в роутс
+    {
+        // Подключаем вид
+        header('Location: /', true, 302);
+        return true;
+    }
 
 
 }

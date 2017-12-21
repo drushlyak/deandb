@@ -82,5 +82,6 @@ return array(
 
     '' => 'site/index', // actionIndex в SiteController ОБЯЗАТЕЛЬНО В КОНЕЦ!!!!
 
+    '(.+)' => 'site/nourl', // actionIndex в SiteController ОБЯЗАТЕЛЬНО В КОНЕЦ!!!!
     
 );
