@@ -71,9 +71,6 @@
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </select>
-
-
-                         echo ;
                         <p></p>
                         <p>Оценка (от 0 до 5)</p>
                         <select name="evaluation">

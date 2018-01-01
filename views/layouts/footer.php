@@ -20,8 +20,16 @@
     function searchTextInDb (){
         var $searchingText;
         $searchingText = document.getElementById("searchingText").value;
-        $searchingText = "/student/search/" + $searchingText + "/";
-        document.location.href = $searchingText;
+        if ($searchingText == '') {
+            alert ('Пустой запрос!');
+        }
+        else {
+            alert ($searchingText);
+            $searchingText = 'http://deandb.loc/student/search/' + $searchingText + '/';
+            alert ($searchingText);
+            document.location.href = $searchingText;
+        }
+        return false;
     }
 
     function printTable (){
@@ -38,6 +46,7 @@
             window.print();
         }
     }
+
 
 
 </script>
