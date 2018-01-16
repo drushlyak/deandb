@@ -31,7 +31,7 @@
                             <label class="btn btn-primary <?php if ($lecturer['full_time_job']== 1) echo "active"?>">
                                 <input type="radio" name="full_time_job" value="1" <?php if ($lecturer['full_time_job']== 1) echo "checked"?> > Да
                             </label>
-                            <label class="btn btn-primary" <?php if ($lecturer['full_time_job']<>1) echo "active"?>>
+                            <label class="btn btn-primary  <?php if ($lecturer['full_time_job']<>1) echo "active"?>">
                                 <input type="radio" name="full_time_job" value=""  <?php if ($lecturer['full_time_job']<>1) echo "checked"?>  > Нет
                             </label>
                         </div>

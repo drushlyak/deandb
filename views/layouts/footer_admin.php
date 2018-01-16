@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <p class="pull-left">Курсовой проект по дисциплине «Базы данных» студента группы з-445У-а А.В.Друшляка</p>
-                <p class="pull-right">ТУСУР © 2017</p>
+                <p class="pull-right">ТУСУР © 2018</p>
             </div>
         </div>
     </div>

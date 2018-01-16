@@ -23,7 +23,7 @@
                 <div class="login-form">
                     <form action="#" method="post">
 
-                        <p>Название дисциплины</p>
+                        <p>Название предмета</p>
                         <input type="text" name="name_of_discipline" placeholder="" value="<?php echo $disciplines['name_of_discipline'] ?>">
 
                         <p>Количество учебных часов</p>

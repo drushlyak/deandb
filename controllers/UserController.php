@@ -22,7 +22,7 @@ class UserController
             }
             
             if (!User::checkEmail($email)) {
-                $errors[] = 'Неправильный email';
+                $errors[] = 'Неправильный E-mail';
             }
             
             if (!User::checkPassword($password)) {
@@ -57,7 +57,7 @@ class UserController
                         
             // Валидация полей
             if (!User::checkEmail($email)) {
-                $errors[] = 'Неправильный email';
+                $errors[] = 'Неправильный E-mail';
             }            
             if (!User::checkPassword($password)) {
                 $errors[] = 'Пароль не должен быть короче 6-ти символов';

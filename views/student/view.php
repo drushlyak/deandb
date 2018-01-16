@@ -48,7 +48,7 @@
                                 <h2><?php echo $student['surname_of_student'].' '.$student['student_name'].' '.$student['student_second_name'];?></h2>
 
                                 <p><b>Группа обучения:</b> <?php echo "<a href=\"/groupall/".$student['group_number']."\">".$student['group_code']."</a>" ;?></p>
-                                <p><b>Тип обучения:</b> <?php echo $student['type_of_study'];?></p>
+                                <p><b>Вид обучения:</b> <?php echo $student['type_of_study'];?></p>
                                 <p><b>Оплата обучения:</b> <?php echo $student['kind_of_study_fees'];?></p>
                                 <p><b>Поступил(а) на обучение:</b> <?php echo $student['accepted'];?></p>
                                 <p><b>Проживает по адресу:</b> <?php echo $student['residence'];?></p>
@@ -67,7 +67,7 @@
                                 <table>
                                     <tbody>
                                     <tr>
-                                        <th>Дисциплина</th>
+                                        <th>Предмет</th>
                                         <th>Семестр</th>
                                         <th>Оценка</th>
                                     </tr>

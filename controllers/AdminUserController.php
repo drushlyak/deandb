@@ -50,7 +50,7 @@ class AdminUserController extends AdminBase
             }
 
             if (!User::checkEmail($email)) {
-                $errors[] = 'Неправильный email';
+                $errors[] = 'Неправильный E-mail';
             }
 
             if (!User::checkPassword($password)) {
@@ -102,7 +102,7 @@ class AdminUserController extends AdminBase
                 }
 
                 if (!User::checkEmail($email)) {
-                    $errors[] = 'Неправильный email';
+                    $errors[] = 'Неправильный E-mail';
                 }
 
                 if (!User::checkPassword($password)) {
@@ -114,11 +114,11 @@ class AdminUserController extends AdminBase
                 }
 
                 if ($errors == false) {
-                    $result = User::updateUser($id,$name, $email, $password,$role);
+                    $result = User::updateUser($id,$name,$email,$password,$role);
                 }
 
                 // Перенаправляем пользователя на страницу управления
-                header("Location: /admin/user");
+               header("Location: /admin/user");
             }
 
         // Подключаем вид

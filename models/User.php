@@ -200,12 +200,12 @@ class User
         return $userList;
     }
 
-    public static function createUser($name, $email, $password,$role='')
+    public static function createUser($name,$email,$password,$role)
     {
 
         $db = Db::getConnection();
 
-        $sql = 'INSERT INTO user (name, email, password,role) '
+        $sql = 'INSERT INTO user (name, email, password, role) '
             . 'VALUES (:name, :email, :password, :role)';
 
         $result = $db->prepare($sql);
@@ -217,7 +217,7 @@ class User
         return $result->execute();
     }
 
-    public static function updateUser($id,$name, $email, $password,$role)
+    public static function updateUser($id,$name,$email,$password,$role)
     {
 
         $db = Db::getConnection();
@@ -231,7 +231,7 @@ class User
             WHERE id = :id";
 
         $result = $db->prepare($sql);
-        $result->bindParam(':id', $id, PDO::PARAM_STR);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
         $result->bindParam(':email', $email, PDO::PARAM_STR);
         $result->bindParam(':password', $password, PDO::PARAM_STR);

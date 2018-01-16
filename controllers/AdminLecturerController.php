@@ -43,7 +43,7 @@ class AdminLecturerController extends AdminBase
 
             // При необходимости можно валидировать значения нужным образом
             if (!isset($lecturer) || empty($lecturer)) {
-                $errors[] = 'Заполните поле';
+                $errors[] = 'Заполните поле ФИО преподавателя';
             }
 
 

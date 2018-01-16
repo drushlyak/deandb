@@ -43,7 +43,7 @@ class SiteController
 
             // Валидация полей
             if (!User::checkEmail($userEmail)) {
-                $errors[] = 'Неправильный email';
+                $errors[] = 'Неправильный E-mail';
             }
 
             if ($errors == false) {

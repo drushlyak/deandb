@@ -9,28 +9,29 @@
 
                 <br/>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac 
-                    lorem sit amet erat venenatis porta. Pellentesque ultricies 
-                    neque nec eros fringilla, vitae euismod massa posuere. Nullam 
-                    volutpat, nisl efficitur convallis bibendum, turpis nunc 
-                    ullamcorper metus, a iaculis sapien sem a est. Maecenas ac 
-                    vestibulum ex. Nullam interdum quis mi ut venenatis. </p>
+                <p>Данное приложение создано в рамках выполенения курсового проекта по предмету
+                    "Базы данных", предметная область "Деканат".</p>
 
-                <p>Phasellus iaculis purus elementum felis varius, vel viverra massa
-                    tincidunt. Aliquam vulputate dictum luctus. Aenean lectus
-                    risus, pellentesque eget lectus eu, sodales fringilla magna.
-                    Nunc diam mi, dictum ac est non, molestie eleifend ligula.
-                    Nam pharetra vulputate lectus. Duis non quam in est interdum
-                    pellentesque condimentum a elit. Praesent eget turpis euismod,
-                    maximus lectus sed, elementum mi. Nulla enim tortor, malesuada
-                    suscipit finibus at, eleifend eget urna. Mauris laoreet metus
-                    a nisl bibendum, nec maximus urna molestie.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac
-                    lorem sit amet erat venenatis porta. Pellentesque ultricies
-                    neque nec eros fringilla, vitae euismod massa posuere. Nullam
-                    volutpat, nisl efficitur convallis bibendum, turpis nunc
-                    ullamcorper metus, a iaculis sapien sem a est.</p>
+                <p>Приложение позволяет просматривать информацию о количестве студентов
+                    в группах, информацию о студенте и его успеваемости, а также вносить
+                    информацию о новых студентах и редактировать имеющуюся информацию.
+                    Также реализован поиск информации о студентах по ключевым словам.
+                    Добавление, замена и удаление информации производятся в экранных формах
+                    разрабатываемого пользовательского приложения. </p>
+
+                <p>Созданное приложение работающие со спроектированной БД обеспечивает:
+                    ввод информации в базу данных,
+                    удаление информации из базы данных,
+                    редактирование внесенной информации,
+                    выборкe (поиск) данных с использованием различных критериев,
+                    формирование отчетов и вывод информации из базы данных на экран и для вывода
+                    на принтер.
+                </p>
+
+                <p>Вы можете сами опробовать данное приложение.
+                    Логин и пароль  администратора: admin@mail.ru / a12345678 </p>
+
             </div>
         </div>
     </div>

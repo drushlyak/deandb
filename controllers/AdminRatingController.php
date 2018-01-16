@@ -53,11 +53,17 @@ class AdminRatingController extends AdminBase
                 $errors[] = 'Заполните поле';
             }
 
+            if (!isset($evaluation)) {
+                $errors[] = 'Заполните поле Оценка';
+            }
+
+
             if ($evaluation < 0 && $evaluation > 5) {
                 $errors[] = 'Оценка должна быть в интервале от 0 до 5';
             }
 
-            if (Rating::checkRowRating($student_id,$discipline_id,$semester_id)) {
+
+            if (Rating::checkRowRating($student_id,$discipline_id,$semester_id,$evaluation)) {
                 $errors[] = 'Запись уже есть в таблице';
             }
             
@@ -112,6 +118,10 @@ class AdminRatingController extends AdminBase
             // При необходимости можно валидировать значения нужным образом
             if (!isset($student_id) || empty($student_id)) {
                 $errors[] = 'Заполните поле';
+            }
+
+            if (!isset($evaluation) || empty($evaluation)) {
+                $errors[] = 'Заполните поле Оценка';
             }
 
             if ($evaluation < 0 && $evaluation > 5) {

@@ -77,7 +77,7 @@
 
                         <p></p>
                         <p>Оценка (от 0 до 5)</p>
-                        <input type="number" min="0" max="5" name="evaluation" placeholder="" value="">
+                        <input type="number" min="0" max="5" name="evaluation" placeholder="" value="0">
 
                         <br> <br>
 

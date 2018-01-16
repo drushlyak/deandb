@@ -35,9 +35,8 @@ class StudentController
         $groups = Group::getGroupsList();
 
         $searchText = urldecode ($searchText);
-        //$searchText = 'лидия';
         // Получаем список
-        $studentsList = Student::getResultList($searchText); // описать метод
+        $studentsList = Student::getResultList($searchText);
 
         // Подключаем вид
         require_once(ROOT . '/views/student/result.php');
